@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://do5jmch55nf2d"]
+
+[ext_resource type="Script" uid="uid://dp5ry1iahxw6s" path="res://Character/character.gd" id="1_nwtvh"]
+[ext_resource type="Texture2D" uid="uid://bdoln5fpqqr6r" path="res://Imagenes/Prota/caer2.png" id="2_veuuo"]
+[ext_resource type="Texture2D" uid="uid://dytvb58trousr" path="res://Imagenes/Prota/caida1.png" id="3_rgbux"]
+[ext_resource type="Texture2D" uid="uid://4m7ts0qgjvi" path="res://Imagenes/Prota/salto1.png" id="4_f0n7x"]
+[ext_resource type="Texture2D" uid="uid://dlspx1nj61cyf" path="res://Imagenes/Prota/salto2.png" id="5_ge5jf"]
+[ext_resource type="Texture2D" uid="uid://bov1ut65siqyo" path="res://Imagenes/Prota/salto3.png" id="6_y1tsf"]
+[ext_resource type="Texture2D" uid="uid://y5w60a4ctbpd" path="res://Imagenes/Prota/andar1.png" id="7_l8sad"]
+[ext_resource type="Texture2D" uid="uid://k61xhrdsx2e8" path="res://Imagenes/Prota/andar2.png" id="8_vs7nk"]
+[ext_resource type="Texture2D" uid="uid://dyh5pv4xgg8h5" path="res://Imagenes/Prota/andar3.png" id="9_payuw"]
+[ext_resource type="Texture2D" uid="uid://boare6jd3aotv" path="res://Imagenes/Prota/agarrarpared.png" id="10_c5rlk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nwtvh"]
+radius = 83.0
+height = 188.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t4sv1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_veuuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rgbux")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_f0n7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ge5jf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y1tsf")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_l8sad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vs7nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_payuw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_c5rlk")
+}],
+"loop": true,
+"name": &"wallJump",
+"speed": 5.0
+}]
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_nwtvh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_nwtvh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t4sv1")
+animation = &"walk"
+flip_h = true
