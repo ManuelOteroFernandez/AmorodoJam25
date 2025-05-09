@@ -11,8 +11,36 @@ config_version=5
 [application]
 
 config/name="AmorodoJam25"
+run/main_scene="uid://dcecwm845a2o5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[input]
+
+right={
+"deadzone": 0.2,
+"events": []
+}
+left={
+"deadzone": 0.2,
+"events": []
+}
+up={
+"deadzone": 0.2,
+"events": []
+}
+down={
+"deadzone": 0.2,
+"events": []
+}
+jump={
+"deadzone": 0.2,
+"events": []
+}
+interact={
+"deadzone": 0.2,
+"events": []
+}
 
 [rendering]
 
