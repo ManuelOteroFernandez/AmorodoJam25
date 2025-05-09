@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://bup8wuhbae6cn"]
+
+[ext_resource type="Texture2D" uid="uid://dob6uxoppldc1" path="res://Imagenes/Pedrigato/pedrigatoanda1.png" id="1_lc6vv"]
+[ext_resource type="Texture2D" uid="uid://bcf78j6e0l3gb" path="res://Imagenes/Pedrigato/pedrigatoanda2.png" id="2_7bhcq"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lc6vv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7bhcq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
