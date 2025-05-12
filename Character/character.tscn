@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://do5jmch55nf2d"]
+[gd_scene load_steps=14 format=3 uid="uid://do5jmch55nf2d"]
 
 [ext_resource type="Script" uid="uid://dp5ry1iahxw6s" path="res://Character/character.gd" id="1_nwtvh"]
 [ext_resource type="Texture2D" uid="uid://bdoln5fpqqr6r" path="res://Imagenes/Prota/caer2.png" id="2_veuuo"]
@@ -10,10 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://k61xhrdsx2e8" path="res://Imagenes/Prota/andar2.png" id="8_vs7nk"]
 [ext_resource type="Texture2D" uid="uid://dyh5pv4xgg8h5" path="res://Imagenes/Prota/andar3.png" id="9_payuw"]
 [ext_resource type="Texture2D" uid="uid://boare6jd3aotv" path="res://Imagenes/Prota/agarrarpared.png" id="10_c5rlk"]
+[ext_resource type="Script" uid="uid://plvmiye3xpt4" path="res://Character/character_animation.gd" id="11_rgbux"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nwtvh"]
-radius = 83.0
-height = 188.0
+radius = 72.0
+height = 248.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t4sv1"]
 animations = [{
@@ -27,6 +28,14 @@ animations = [{
 "loop": true,
 "name": &"fall",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_l8sad")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -53,7 +62,7 @@ animations = [{
 "texture": ExtResource("9_payuw")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"run",
 "speed": 5.0
 }, {
 "frames": [{
@@ -72,6 +81,8 @@ script = ExtResource("1_nwtvh")
 shape = SubResource("CapsuleShape2D_nwtvh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(22, 39)
 sprite_frames = SubResource("SpriteFrames_t4sv1")
-animation = &"walk"
+animation = &"run"
 flip_h = true
+script = ExtResource("11_rgbux")
