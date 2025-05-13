@@ -18,6 +18,8 @@ func _process(_delta: float) -> void:
 			play("run")
 		Player.STATES.JUMPING:
 			play("jump")
+		Player.STATES.DASHING:
+			play("dash")
 
 	if parent.velocity.x != 0:
 		flip_h = parent.velocity.x > 0

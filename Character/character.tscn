@@ -20,6 +20,17 @@ height = 248.0
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_f0n7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_veuuo")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_veuuo")
 }, {
 "duration": 1.0,
@@ -86,3 +97,7 @@ sprite_frames = SubResource("SpriteFrames_t4sv1")
 animation = &"run"
 flip_h = true
 script = ExtResource("11_rgbux")
+
+[node name="DashTimerCooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
