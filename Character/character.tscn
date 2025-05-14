@@ -98,8 +98,4 @@ script = ExtResource("11_rgbux")
 wait_time = 2.0
 one_shot = true
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, 107)
-target_position = Vector2(0, 200)
-
 [connection signal="on_change_state" from="." to="AnimatedSprite2D" method="_on_character_change_state"]
