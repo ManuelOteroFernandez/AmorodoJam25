@@ -131,7 +131,7 @@ func _state_dashing_init():
 	_change_state(STATES.DASHING)
 	dash_start_loc = global_position
 	dash_vector = Vector2(dash_velocity,0)
-	if not $AnimatedSprite2D.flip_h:
+	if $AnimatedSprite2D.flip_h:
 		dash_vector *= -1 
 	
 func _state_dashing_phisics_process(delta):
