@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 		return
 		
 	if parent.velocity.x != 0:
-		flip_h = parent.velocity.x > 0
+		flip_h = parent.velocity.x < 0
 
 
 func _on_character_change_state() -> void:

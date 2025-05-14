@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://plvmiye3xpt4" path="res://Character/character_animation.gd" id="11_rgbux"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nwtvh"]
-radius = 72.0
+radius = 63.0
 height = 248.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t4sv1"]
@@ -63,10 +63,10 @@ animations = [{
 "texture": ExtResource("7_l8sad")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_vs7nk")
+"texture": ExtResource("9_payuw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_payuw")
+"texture": ExtResource("8_vs7nk")
 }],
 "loop": true,
 "name": &"run",
@@ -88,9 +88,12 @@ script = ExtResource("1_nwtvh")
 shape = SubResource("CapsuleShape2D_nwtvh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(22, 39)
+position = Vector2(1, 7)
+scale = Vector2(0.993333, 1)
 sprite_frames = SubResource("SpriteFrames_t4sv1")
-animation = &"fall"
+animation = &"run"
+frame = 2
+frame_progress = 0.288048
 flip_h = true
 script = ExtResource("11_rgbux")
 
