@@ -18,7 +18,7 @@ signal change_zone_signal
 @export var speed = 50000
 @export var jump_force = -1000
 @export var gravity = 1800
-@export var wall_gravity = 150
+@export var wall_gravity = 800
 @export var dash_velocity = 100000
 @export var dash_distance = 500
 @export var dash_time_cooldown = 2
@@ -32,6 +32,7 @@ var horizontal_direction = 0
 var horizontal_velocity = 0
 var vertical_velocity = 0
 
+var dash_timer : Timer
 var dash_timer_cooldown : Timer
 var dash_start_loc : Vector2
 var dash_vector : Vector2
@@ -41,7 +42,9 @@ var block_input
 func _ready() -> void:	
 	dash_timer_cooldown = $DashTimerCooldown
 	dash_timer_cooldown.wait_time = dash_time_cooldown
-	dash_timer_cooldown.connect("timeout",Callable(self,"_dashing_ends"))
+	
+	dash_timer = $DashTimer
+	dash_timer.timeout.connect(_state_dashing_ends)
 
 func _process(delta):
 	horizontal_direction = Input.get_axis("left", "right")
@@ -134,6 +137,8 @@ func _state_dashing_init():
 	if $AnimatedSprite2D.flip_h:
 		dash_vector *= -1 
 	
+	dash_timer.start()
+	
 func _state_dashing_phisics_process(delta):
 	velocity = dash_vector * delta
 	move_and_slide()
@@ -141,9 +146,11 @@ func _state_dashing_phisics_process(delta):
 	if velocity.x == 0 or dash_start_loc.distance_to(global_position) > dash_distance:
 		_state_dashing_ends()
 	
+	
 func _state_dashing_ends():
-	_change_state()
-	dash_timer_cooldown.start()
+	if current_state == STATES.DASHING:
+		_change_state()
+		dash_timer_cooldown.start()
 	
 func _state_climbing_init():
 	_change_state(STATES.CLIMBING)
@@ -153,7 +160,7 @@ func _state_climbing_phisics_process(delta):
 	if vertical_velocity < 0:
 		vertical_velocity = 0
 		
-	vertical_velocity += wall_gravity * delta
+	vertical_velocity = wall_gravity * delta
 	velocity = Vector2(horizontal_direction * speed * delta, vertical_velocity)
 	move_and_slide()
 	
@@ -189,6 +196,9 @@ func _wall_jump():
 		#print("velocidad inicial=> {0}".format([horizontal_velocity]))
 		
 func _change_state(new_state:STATES = STATES.UNDEFINED):
+	if current_state == STATES.FALLING and new_state != STATES.JUMPING:
+		vertical_velocity = 0
+	
 	if current_state == STATES.JUMPING and horizontal_velocity != 0:
 		horizontal_velocity = 0
 		
