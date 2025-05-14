@@ -153,7 +153,7 @@ func _state_climbing_phisics_process(delta):
 		vertical_velocity = 0
 		
 	vertical_velocity += wall_gravity * delta
-	velocity = Vector2(horizontal_direction * speed, vertical_velocity)
+	velocity = Vector2(horizontal_direction * speed * delta, vertical_velocity)
 	move_and_slide()
 	
 	if not is_on_wall_only():
