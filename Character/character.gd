@@ -83,13 +83,33 @@ func _physics_process(delta):
 	if is_on_floor() and current_state in [STATES.JUMPING, STATES.FALLING] and vertical_velocity >= 0:
 		_change_state()
 		return
-	
+		
 	if is_on_wall_only() and horizontal_direction != 0:
-		_state_climbing_init()
-		return
+		if not check_floor_distance():
+			_state_climbing_init()
+			return
 	
 	if not is_on_floor() and vertical_velocity >= 0 and current_state != STATES.FALLING:
 		_change_state(STATES.FALLING)
+		
+func check_floor_distance() -> bool:
+	var space_state = get_world_2d().get_direct_space_state()
+	if not is_instance_valid(space_state):
+		return false 
+
+	var ray_origin = global_position
+
+	var ray_end = global_position + Vector2(0, 400)
+
+	var query = PhysicsRayQueryParameters2D.new()
+	query.from = ray_origin
+	query.to = ray_end
+	query.collision_mask = 1
+	query.exclude = [self]
+
+	var result = space_state.intersect_ray(query)
+
+	return result and not result.is_empty()
 
 func _state_idle(_delta):
 	if abs(horizontal_direction) > 0.1:
