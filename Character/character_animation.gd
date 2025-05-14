@@ -10,6 +10,12 @@ func _process(_delta: float) -> void:
 	if not parent:
 		printerr("Character animated sprite cannot find parent")
 		return
+		
+	if parent.velocity.x != 0:
+		flip_h = parent.velocity.x > 0
+
+
+func _on_character_change_state() -> void:
 	
 	match parent.current_state:
 		Player.STATES.IDLE:
@@ -20,6 +26,7 @@ func _process(_delta: float) -> void:
 			play("jump")
 		Player.STATES.DASHING:
 			play("dash")
-
-	if parent.velocity.x != 0:
-		flip_h = parent.velocity.x > 0
+		Player.STATES.CLIMBING:
+			play("wallJump")
+		Player.STATES.FALLING:
+			play("fall")

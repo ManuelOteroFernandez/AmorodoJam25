@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://do5jmch55nf2d"]
+[gd_scene load_steps=13 format=3 uid="uid://do5jmch55nf2d"]
 
 [ext_resource type="Script" uid="uid://dp5ry1iahxw6s" path="res://Character/character.gd" id="1_nwtvh"]
 [ext_resource type="Texture2D" uid="uid://bdoln5fpqqr6r" path="res://Imagenes/Prota/caer2.png" id="2_veuuo"]
 [ext_resource type="Texture2D" uid="uid://dytvb58trousr" path="res://Imagenes/Prota/caida1.png" id="3_rgbux"]
 [ext_resource type="Texture2D" uid="uid://4m7ts0qgjvi" path="res://Imagenes/Prota/salto1.png" id="4_f0n7x"]
-[ext_resource type="Texture2D" uid="uid://dlspx1nj61cyf" path="res://Imagenes/Prota/salto2.png" id="5_ge5jf"]
 [ext_resource type="Texture2D" uid="uid://bov1ut65siqyo" path="res://Imagenes/Prota/salto3.png" id="6_y1tsf"]
 [ext_resource type="Texture2D" uid="uid://y5w60a4ctbpd" path="res://Imagenes/Prota/andar1.png" id="7_l8sad"]
 [ext_resource type="Texture2D" uid="uid://k61xhrdsx2e8" path="res://Imagenes/Prota/andar2.png" id="8_vs7nk"]
@@ -31,14 +30,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_veuuo")
+"texture": ExtResource("3_rgbux")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_rgbux")
+"texture": ExtResource("2_veuuo")
 }],
-"loop": true,
+"loop": false,
 "name": &"fall",
-"speed": 2.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -53,12 +52,9 @@ animations = [{
 "texture": ExtResource("4_f0n7x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_ge5jf")
-}, {
-"duration": 1.0,
 "texture": ExtResource("6_y1tsf")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -94,10 +90,12 @@ shape = SubResource("CapsuleShape2D_nwtvh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(22, 39)
 sprite_frames = SubResource("SpriteFrames_t4sv1")
-animation = &"run"
+animation = &"fall"
 flip_h = true
 script = ExtResource("11_rgbux")
 
 [node name="DashTimerCooldown" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[connection signal="on_change_state" from="." to="AnimatedSprite2D" method="_on_character_change_state"]
