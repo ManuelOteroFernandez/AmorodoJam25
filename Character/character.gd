@@ -200,10 +200,7 @@ func _change_state(new_state:STATES = STATES.UNDEFINED):
 		vertical_velocity = 0
 	
 	if current_state == STATES.JUMPING and horizontal_velocity != 0:
-		horizontal_velocity = 0
-		
-	if not can_double_jump and new_state in [STATES.IDLE, STATES.RUNNING]:
-		can_double_jump = true
+		horizontal_velocity = 0	
 		
 	if new_state != STATES.UNDEFINED:
 		current_state = new_state
@@ -217,6 +214,9 @@ func _change_state(new_state:STATES = STATES.UNDEFINED):
 	else:
 		current_state = STATES.FALLING
 		
+	if not can_double_jump and current_state in [STATES.IDLE, STATES.RUNNING]:
+		can_double_jump = true
+	
 	change_state_signal.emit()
 
 
