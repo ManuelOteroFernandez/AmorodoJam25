@@ -10,7 +10,8 @@ enum STATES {
 	FALLING,
 }
 
-signal on_change_state
+signal change_state_signal
+signal change_zone_signal
 
 
 # Movement variables
@@ -206,4 +207,8 @@ func _change_state(new_state:STATES = STATES.UNDEFINED):
 	else:
 		current_state = STATES.FALLING
 		
-	on_change_state.emit()
+	change_state_signal.emit()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	change_zone_signal.emit()
