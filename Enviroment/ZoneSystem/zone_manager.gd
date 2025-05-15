@@ -16,7 +16,7 @@ func on_player_change_zone():
 	trackPlayer = true
 	$Timer.start()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if trackPlayer:
 		var new_index = player.global_position / zone_size
 		$CameraTarget.position = initial_position + zone_size * floor(new_index)
