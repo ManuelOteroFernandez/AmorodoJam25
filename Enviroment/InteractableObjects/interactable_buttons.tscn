@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://e1q78e45crdl"]
+
+[ext_resource type="Script" uid="uid://yro2vjtlxoa3" path="res://Enviroment/InteractableObjects/base_cartel.gd" id="1_2phbo"]
+[ext_resource type="Texture2D" uid="uid://cj5nd6lem311n" path="res://icon.svg" id="2_7yh1v"]
+[ext_resource type="Script" uid="uid://dg5exf35lnas3" path="res://Enviroment/InteractableObjects/rotate_imagen.gd" id="3_86vve"]
+
+[node name="CartelBase" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -348.0
+offset_right = 450.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(450, 200)
+script = ExtResource("1_2phbo")
+
+[node name="ButtonKeyboard" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -64.0
+offset_right = -36.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_7yh1v")
+script = ExtResource("3_86vve")
+
+[node name="ButtonGamepad" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -64.0
+offset_right = 164.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("2_7yh1v")
+script = ExtResource("3_86vve")

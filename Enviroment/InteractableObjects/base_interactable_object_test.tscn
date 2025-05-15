@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf2845excjp31"]
+
+[ext_resource type="PackedScene" uid="uid://b4jcq25d060fl" path="res://Enviroment/InteractableObjects/base_interactable_object.tscn" id="1_xycw7"]
+[ext_resource type="Script" uid="uid://becpudynrqau" path="res://Enviroment/InteractableObjects/base_interactable_object_test.gd" id="2_81soa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81soa"]
+size = Vector2(200, 111)
+
+[node name="BaseInteractableObject" instance=ExtResource("1_xycw7")]
+script = ExtResource("2_81soa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_81soa")

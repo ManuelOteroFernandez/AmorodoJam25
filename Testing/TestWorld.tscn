@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://dcecwm845a2o5"]
+[gd_scene load_steps=9 format=4 uid="uid://dcecwm845a2o5"]
 
 [ext_resource type="Texture2D" uid="uid://c5rp46movyaij" path="res://Imagenes/Faros/faro1.png" id="1_ievpp"]
 [ext_resource type="Texture2D" uid="uid://dm6ofdlbqb4x6" path="res://Testing/Terrain.png" id="2_ievpp"]
 [ext_resource type="PackedScene" uid="uid://do5jmch55nf2d" path="res://Character/character.tscn" id="2_mxkld"]
 [ext_resource type="Texture2D" uid="uid://dob6uxoppldc1" path="res://Imagenes/Pedrigato/pedrigatoanda1.png" id="4_7xs40"]
 [ext_resource type="PackedScene" uid="uid://b2pn1ydyik1qs" path="res://Enviroment/ZoneSystem/zone_manager.tscn" id="5_7xs40"]
+[ext_resource type="PackedScene" uid="uid://cf2845excjp31" path="res://Enviroment/InteractableObjects/base_interactable_object_test.tscn" id="6_ckhw4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7xs40"]
 texture = ExtResource("2_ievpp")
@@ -398,3 +399,6 @@ texture = ExtResource("4_7xs40")
 
 [node name="ZoneManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_7xs40")]
 player = NodePath("../Character")
+
+[node name="BaseInteractableObject" parent="." instance=ExtResource("6_ckhw4")]
+position = Vector2(813, 1804)
