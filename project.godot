@@ -15,6 +15,10 @@ run/main_scene="uid://dcecwm845a2o5"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Collectable="*res://Enviroment/CollectableObjects/collectable.gd"
+
 [input]
 
 right={
