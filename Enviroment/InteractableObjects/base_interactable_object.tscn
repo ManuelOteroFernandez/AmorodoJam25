@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4jcq25d060fl"]
+
+[ext_resource type="Script" uid="uid://bn7rdt04vftwv" path="res://Enviroment/InteractableObjects/interaction_area.gd" id="1_hhojg"]
+[ext_resource type="Script" uid="uid://cftbt8odnxuv5" path="res://Enviroment/InteractableObjects/base_interactable_object.gd" id="1_p1fc7"]
+[ext_resource type="PackedScene" uid="uid://e1q78e45crdl" path="res://Enviroment/InteractableObjects/interactable_buttons.tscn" id="2_q0srh"]
+
+[node name="BaseInteractableObject" type="Node2D"]
+script = ExtResource("1_p1fc7")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+script = ExtResource("1_hhojg")
+
+[node name="InteractableButons" parent="." instance=ExtResource("2_q0srh")]
+
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]
+[connection signal="player_in_area" from="InteractionArea" to="InteractableButons" method="show_cartel"]
+[connection signal="player_out_area" from="InteractionArea" to="InteractableButons" method="hide_cartel"]

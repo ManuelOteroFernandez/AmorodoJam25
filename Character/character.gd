@@ -8,16 +8,19 @@ enum STATES {
 	DASHING,
 	CLIMBING,
 	FALLING,
+	INTERACTING,
 }
 
-signal on_change_state
+signal change_state_signal
+signal change_zone_signal
+signal do_action_signal(sender:Player)
 
 
 # Movement variables
 @export var speed = 50000
 @export var jump_force = -1000
 @export var gravity = 1800
-@export var wall_gravity = 150
+@export var wall_gravity = 800
 @export var dash_velocity = 100000
 @export var dash_distance = 500
 @export var dash_time_cooldown = 2
@@ -31,21 +34,24 @@ var horizontal_direction = 0
 var horizontal_velocity = 0
 var vertical_velocity = 0
 
+var dash_timer : Timer
 var dash_timer_cooldown : Timer
 var dash_start_loc : Vector2
 var dash_vector : Vector2
 
 var block_input
+var can_interact : bool = false
 
 func _ready() -> void:	
 	dash_timer_cooldown = $DashTimerCooldown
 	dash_timer_cooldown.wait_time = dash_time_cooldown
-	dash_timer_cooldown.connect("timeout",Callable(self,"_dashing_ends"))
+	
+	dash_timer = $DashTimer
+	dash_timer.timeout.connect(_state_dashing_ends)
 
 func _process(delta):
 	horizontal_direction = Input.get_axis("left", "right")
 
-		
 	# State machine logic
 	match current_state:
 		STATES.IDLE:
@@ -57,7 +63,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if current_state == STATES.UNDEFINED:
+	if current_state in [STATES.UNDEFINED, STATES.INTERACTING]:
 		return 
 		
 	if current_state == STATES.DASHING:
@@ -130,8 +136,10 @@ func _state_dashing_init():
 	_change_state(STATES.DASHING)
 	dash_start_loc = global_position
 	dash_vector = Vector2(dash_velocity,0)
-	if not $AnimatedSprite2D.flip_h:
+	if $AnimatedSprite2D.flip_h:
 		dash_vector *= -1 
+	
+	dash_timer.start()
 	
 func _state_dashing_phisics_process(delta):
 	velocity = dash_vector * delta
@@ -140,9 +148,11 @@ func _state_dashing_phisics_process(delta):
 	if velocity.x == 0 or dash_start_loc.distance_to(global_position) > dash_distance:
 		_state_dashing_ends()
 	
+	
 func _state_dashing_ends():
-	_change_state()
-	dash_timer_cooldown.start()
+	if current_state == STATES.DASHING:
+		_change_state()
+		dash_timer_cooldown.start()
 	
 func _state_climbing_init():
 	_change_state(STATES.CLIMBING)
@@ -152,7 +162,7 @@ func _state_climbing_phisics_process(delta):
 	if vertical_velocity < 0:
 		vertical_velocity = 0
 		
-	vertical_velocity += wall_gravity * delta
+	vertical_velocity = wall_gravity * delta
 	velocity = Vector2(horizontal_direction * speed * delta, vertical_velocity)
 	move_and_slide()
 	
@@ -170,6 +180,10 @@ func _input(event:InputEvent):
 			
 	if event.is_action_pressed("dash") and dash_timer_cooldown.is_stopped():
 		_state_dashing_init()
+		
+	if can_interact and event.is_action_pressed("interact"):
+		_change_state(STATES.INTERACTING)
+		do_action_signal.emit(self)
 	
 func _jump():
 	if (is_on_floor() and current_state != STATES.JUMPING) or can_double_jump:
@@ -188,11 +202,16 @@ func _wall_jump():
 		#print("velocidad inicial=> {0}".format([horizontal_velocity]))
 		
 func _change_state(new_state:STATES = STATES.UNDEFINED):
-	if current_state == STATES.JUMPING and horizontal_velocity != 0:
-		horizontal_velocity = 0
+	if current_state == STATES.INTERACTING:
+		block_input = false
+	if new_state == STATES.INTERACTING:
+		block_input = true
 		
-	if not can_double_jump and new_state in [STATES.IDLE, STATES.RUNNING]:
-		can_double_jump = true
+	if current_state == STATES.FALLING and new_state != STATES.JUMPING:
+		vertical_velocity = 0
+	
+	if current_state == STATES.JUMPING and horizontal_velocity != 0:
+		horizontal_velocity = 0	
 		
 	if new_state != STATES.UNDEFINED:
 		current_state = new_state
@@ -206,4 +225,14 @@ func _change_state(new_state:STATES = STATES.UNDEFINED):
 	else:
 		current_state = STATES.FALLING
 		
-	on_change_state.emit()
+	if not can_double_jump and current_state in [STATES.IDLE, STATES.RUNNING]:
+		can_double_jump = true
+	
+	change_state_signal.emit()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	change_zone_signal.emit()
+	
+func end_interaction():
+	_change_state()
