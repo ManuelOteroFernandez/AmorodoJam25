@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 signal end_sign_sequence
 
@@ -10,15 +10,17 @@ var current_index = 0
 func _ready() -> void:
 	if elements.size() >= 1:
 		_set_data()
-		$Timer.wait_time = wait_time
-		$Timer.timeout.connect(_complete_sequence)
-		$Timer.start()
+		$Control/Timer.wait_time = wait_time
+		$Control/Timer.timeout.connect(_complete_sequence)
+		$Control/Timer.start()
+	else: 
+		queue_free()
 		
 func _hide_data():
 	current_index += 1
 	var tween = get_tree().create_tween()
 	tween.finished.connect(_next_data)
-	tween.tween_property($RichTextLabel,"modulate", Color.TRANSPARENT,0.5)
+	tween.tween_property($Control/RichTextLabel,"modulate", Color.TRANSPARENT,0.5)
 
 
 func _complete_sequence():
@@ -26,18 +28,18 @@ func _complete_sequence():
 		_hide_data()
 	else:
 		end_sign_sequence.emit()
-		await get_tree().create_tween().tween_property(self,"modulate",Color.TRANSPARENT,1).finished
+		await get_tree().create_tween().tween_property($Control,"modulate",Color.TRANSPARENT,1).finished
 		queue_free()
 		
 func _next_data():
 	_set_data()
 	var tween = get_tree().create_tween()
-	tween.tween_property($RichTextLabel,"modulate", Color.WHITE,0.5)
-	$Timer.start()
+	tween.tween_property($Control/RichTextLabel,"modulate", Color.WHITE,0.5)
+	$Control/Timer.start()
 	
 	
 func _set_data():
 	var data =  elements.get(current_index)
-	$RichTextLabel.text = data.text
-	$ColorRect.color = data.background_color
+	$Control/RichTextLabel.text = data.text
+	$Control/ColorRect.color = data.background_color
 	

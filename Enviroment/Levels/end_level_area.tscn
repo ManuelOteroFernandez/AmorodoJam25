@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbtq1cck1rqho"]
+
+[ext_resource type="Script" uid="uid://busek571ylcr7" path="res://Enviroment/Levels/end_level_area.gd" id="1_qrhm3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqydj"]
+size = Vector2(222.5, 314)
+
+[node name="EndLevelArea" type="Area2D"]
+script = ExtResource("1_qrhm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yqydj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

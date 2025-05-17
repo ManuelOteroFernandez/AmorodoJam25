@@ -24,6 +24,7 @@ layer = 3
 visible = false
 
 [node name="TouchControls" parent="UI" instance=ExtResource("2_1bbdn")]
+layer = 10
 visible = false
 
 [node name="TransitionManager" parent="UI" instance=ExtResource("3_5ufeb")]

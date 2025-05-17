@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Collectable="*res://Enviroment/CollectableObjects/collectable.gd"
 Global="*res://global.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 menu="Pause menu is a exception"

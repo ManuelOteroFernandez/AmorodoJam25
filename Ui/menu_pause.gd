@@ -18,16 +18,12 @@ func _ready() -> void:
 	
 	
 func on_pause():
-	if sm.is_open_any_menu():
+	if sm.is_open_any_menu() or sm.transition != SceneManager.Transition_to.None:
 		visible = false
 		return 
 		
 	if not tsm:
 		tsm = sm.get_transitionManager()
-		
-	if tsm.is_in_transition():
-		get_tree().paused = true
-		return
 		
 	if not get_tree().paused:
 		visible = false
