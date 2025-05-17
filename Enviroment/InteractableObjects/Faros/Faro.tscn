@@ -14,10 +14,14 @@ faroOn = ExtResource("3_5vctb")
 faroOff = ExtResource("3_vx3xr")
 
 [node name="Faro" type="Sprite2D" parent="." index="0"]
-position = Vector2(-3, -569)
+position = Vector2(-3, -877)
 scale = Vector2(3, 3)
 texture = ExtResource("3_vx3xr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0"]
 position = Vector2(-0.5, -73)
 shape = SubResource("RectangleShape2D_wllbe")
+
+[node name="InteractableButons" parent="." index="2"]
+offset_top = -612.0
+offset_bottom = -412.0
