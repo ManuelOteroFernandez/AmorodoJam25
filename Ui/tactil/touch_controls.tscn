@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyqnvbwnivkbj"]
+
+[ext_resource type="Script" uid="uid://csq1636x63m4k" path="res://Ui/tactil/touch_controls.gd" id="1_qsqm1"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_vxlae"]
+[ext_resource type="Texture2D" uid="uid://cj5nd6lem311n" path="res://icon.svg" id="2_8vxd5"]
+
+[node name="TouchControls" type="CanvasLayer"]
+script = ExtResource("1_qsqm1")
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("1_vxlae")]
+pressed_color = Color(0.745, 0.745, 0.745, 0.5)
+joystick_mode = 1
+visibility_mode = 1
+action_left = "left"
+action_right = "right"
+action_up = "up"
+action_down = "down"
+
+[node name="TBtnPause" type="TouchScreenButton" parent="."]
+position = Vector2(1000, 39)
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("2_8vxd5")
+texture_pressed = ExtResource("2_8vxd5")
+action = "pause"
+visibility_mode = 1
+
+[node name="TBtnJump" type="TouchScreenButton" parent="."]
+position = Vector2(850, 460)
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("2_8vxd5")
+texture_pressed = ExtResource("2_8vxd5")
+action = "jump"
+visibility_mode = 1
+
+[node name="TBtnInteract" type="TouchScreenButton" parent="."]
+position = Vector2(1000, 336)
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("2_8vxd5")
+texture_pressed = ExtResource("2_8vxd5")
+action = "interact"
+visibility_mode = 1
