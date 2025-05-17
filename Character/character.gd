@@ -156,6 +156,7 @@ func _state_dashing_ends():
 		dash_timer_cooldown.start()
 	
 func _state_climbing_init():
+	block_input = false
 	_change_state(STATES.CLIMBING)
 	velocity = Vector2.ZERO
 	
@@ -195,7 +196,7 @@ func _jump():
 		vertical_velocity = jump_force
 		_change_state(STATES.JUMPING)
 		
-func _wall_jump():	
+func _wall_jump():
 	if current_state == STATES.CLIMBING:
 		_change_state(STATES.JUMPING)
 		vertical_velocity = jump_force
