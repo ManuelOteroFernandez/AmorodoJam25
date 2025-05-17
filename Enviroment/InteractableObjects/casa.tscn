@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw236h5obxnd6"]
+
+[ext_resource type="PackedScene" uid="uid://b4jcq25d060fl" path="res://Enviroment/InteractableObjects/base_interactable_object.tscn" id="1_bvgwg"]
+[ext_resource type="Script" uid="uid://cmf02oc3bx14y" path="res://Enviroment/InteractableObjects/casa.gd" id="2_wa8e4"]
+[ext_resource type="Texture2D" uid="uid://blry4qdwtul8y" path="res://Imagenes/Entorno/CASA1.png" id="3_d4dsk"]
+[ext_resource type="Script" uid="uid://dkwvvqwsb1fbx" path="res://Enviroment/InteractableObjects/response_interaction.gd" id="4_wa8e4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n15i"]
+size = Vector2(456, 142)
+
+[node name="Casa" instance=ExtResource("1_bvgwg")]
+script = ExtResource("2_wa8e4")
+texture = ExtResource("3_d4dsk")
+positve_text = "Casita protejidita"
+negative_text = "No brezo no party"
+
+[node name="CasaSprite" type="Sprite2D" parent="." index="0"]
+position = Vector2(0, -276)
+texture = ExtResource("3_d4dsk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0"]
+position = Vector2(-8, -61)
+shape = SubResource("RectangleShape2D_3n15i")
+
+[node name="InteractableButons" parent="." index="2"]
+offset_top = -517.0
+offset_bottom = -317.0
+
+[node name="ResponseInteraction" type="Control" parent="." index="3"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -211.0
+offset_top = -499.0
+offset_right = 213.0
+offset_bottom = -334.0
+script = ExtResource("4_wa8e4")
+
+[node name="ColorRect" type="ColorRect" parent="ResponseInteraction" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseInteraction" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_right = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1

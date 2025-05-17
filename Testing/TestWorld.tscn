@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dcecwm845a2o5"]
+[gd_scene load_steps=16 format=4 uid="uid://dcecwm845a2o5"]
 
 [ext_resource type="Script" uid="uid://hfy38kyqujdn" path="res://Testing/test_world.gd" id="1_jvubo"]
 [ext_resource type="PackedScene" uid="uid://cua2u0ylan6f0" path="res://Ui/sign_sequence.tscn" id="1_tul1b"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" uid="uid://bkwygh6gvscig" path="res://Testing/TestWorld.gdshader" id="7_uh53g"]
 [ext_resource type="PackedScene" uid="uid://bbtq1cck1rqho" path="res://Enviroment/Levels/end_level_area.tscn" id="9_jvubo"]
 [ext_resource type="PackedScene" uid="uid://dwb0rypgpm4g4" path="res://Enviroment/CollectableObjects/brezo.tscn" id="11_xokkf"]
+[ext_resource type="PackedScene" uid="uid://dw236h5obxnd6" path="res://Enviroment/InteractableObjects/casa.tscn" id="13_ixrb1"]
 [ext_resource type="PackedScene" uid="uid://27vsn4wh001y" path="res://Enviroment/InteractableObjects/check_point.tscn" id="13_urr5p"]
 
 [sub_resource type="Resource" id="Resource_u3w0i"]
@@ -70,7 +71,7 @@ texture = ExtResource("4_7xs40")
 position = Vector2(813, 1804)
 
 [node name="InitialPosition" type="Node2D" parent="." groups=["player_spawner"]]
-position = Vector2(7240, 5595)
+position = Vector2(8923, 5604)
 
 [node name="EndLevelArea" parent="." instance=ExtResource("9_jvubo")]
 position = Vector2(3829, 981)
@@ -80,3 +81,6 @@ position = Vector2(1194, 1624)
 
 [node name="CheckPoint" parent="." instance=ExtResource("13_urr5p")]
 position = Vector2(2791, 1266)
+
+[node name="Casa" parent="." instance=ExtResource("13_ixrb1")]
+position = Vector2(9622, 6010)
