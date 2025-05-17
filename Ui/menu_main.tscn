@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ooy4pxkqsu6x"]
+[gd_scene load_steps=4 format=3 uid="uid://ooy4pxkqsu6x"]
 
 [ext_resource type="Script" uid="uid://ch4e6ef41aahj" path="res://Ui/menu_main.gd" id="1_is1jg"]
+[ext_resource type="Texture2D" uid="uid://b2bgir4aqnjb4" path="res://Imagenes/Escenas/escena4.png" id="2_s16ea"]
+
+[sub_resource type="FontVariation" id="FontVariation_is1jg"]
+spacing_glyph = 1
 
 [node name="MenuMain" type="Control" groups=["menu"]]
 layout_mode = 3
@@ -11,60 +15,72 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_is1jg")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -223.0
+offset_top = -203.0
+offset_right = 1366.0
+offset_bottom = 691.0
+texture = ExtResource("2_s16ea")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03, 0.03, 0.03, 0.77)
+
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -77.0
+offset_left = -427.0
 offset_top = 85.0
-offset_right = 90.0
-offset_bottom = 125.0
+offset_right = 427.0
+offset_bottom = 140.0
 grow_horizontal = 2
-text = "MAIN MENU"
+theme_override_fonts/bold_font = SubResource("FontVariation_is1jg")
+bbcode_enabled = true
+text = "TITULO_JUEGO"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BtnStartGame" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.74
-anchor_top = 0.48
-anchor_right = 0.74
-anchor_bottom = 0.48
-offset_left = -36.755
-offset_top = -15.817
-offset_right = 36.245
-offset_bottom = 15.183
-text = "Jugar"
+anchor_left = 0.5
+anchor_top = 0.539
+anchor_right = 0.5
+anchor_bottom = 0.776
+offset_left = -46.0
+offset_top = -0.272034
+offset_right = 46.0
+offset_bottom = 0.151978
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="BtnControls" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.742
-anchor_top = 0.553
-anchor_right = 0.742
-anchor_bottom = 0.553
-offset_left = -36.7841
-offset_top = -15.344
-offset_right = 46.2159
-offset_bottom = 15.656
-text = "Controles"
+[node name="BtnStartGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "JUGAR"
+flat = true
 
-[node name="BtnCredits" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.743
-anchor_top = 0.621
-anchor_right = 0.743
-anchor_bottom = 0.621
-offset_left = -36.936
-offset_top = -15.408
-offset_right = 36.064
-offset_bottom = 15.592
-text = "Creditos"
+[node name="BtnControls" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "CONTROLES"
+flat = true
 
-[connection signal="button_up" from="BtnStartGame" to="." method="_on_btn_start_game_pressed"]
-[connection signal="button_down" from="BtnControls" to="." method="_on_btn_controls_pressed"]
-[connection signal="button_down" from="BtnCredits" to="." method="_on_btn_credits_pressed"]
+[node name="BtnCredits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "CREDITOS"
+flat = true
+
+[connection signal="button_up" from="VBoxContainer/BtnStartGame" to="." method="_on_btn_start_game_pressed"]
+[connection signal="button_down" from="VBoxContainer/BtnControls" to="." method="_on_btn_controls_pressed"]
+[connection signal="button_down" from="VBoxContainer/BtnCredits" to="." method="_on_btn_credits_pressed"]

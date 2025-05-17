@@ -13,13 +13,27 @@ signal pause_signal
 enum MENU_TYPE { CREDITS, CONTROLS }
 enum Transition_to { None, MainMenu, Level, Credits, Controls, CloseMenu }
 
+var story_index = 1
+var story01: Array[SceneSequenceData] = [
+	load("res://Story/story_scene_01.tres"),
+	load("res://Story/story_scene_02.tres"), 
+	load("res://Story/story_scene_03.tres"),
+	load("res://Story/story_scene_04.tres"),
+	load("res://Story/story_scene_05.tres")
+]
+var story02: Array[SceneSequenceData] = [
+	load("res://Story/story_scene_07.tres"),
+	load("res://Story/story_scene_08.tres")
+]
+
 var next_scene = null
 var current_transition = Transition_to.None
 var current_level_index = 0
 
 const level_list = [
-	"res://Testing/TestWorld.tscn",
-	"res://Enviroment/Levels/Level01.tscn"
+	"res://Story/story.tscn",
+	"res://Enviroment/Levels/Level01.tscn",
+	"res://Story/story.tscn"
 ]
 
 func _ready() -> void:
@@ -90,6 +104,16 @@ func _on_mid_transition():
 		var scene_node:Node = load(next_scene).instantiate()
 		$CurrentSceneStack.add_child(scene_node)
 		$CurrentSceneStack.move_child(scene_node,0)
+		
+		if scene_node is StoryScene:
+			if story_index == 1:
+				scene_node.sceneData = story01
+				story_index = 2
+			else:
+				scene_node.sceneData = story02
+				story_index = 1
+			scene_node.start_sequence()
+		
 	elif current_transition == Transition_to.MainMenu:
 		_on_mid_open_main_menu()
 	elif current_transition in [Transition_to.Credits, Transition_to.Controls]:
@@ -103,6 +127,7 @@ func _on_end_transition():
 		pause(false)
 		open_level_end_signal.emit()
 		current_transition = Transition_to.None
+		
 		
 func is_open_any_menu():
 	return (current_transition != Transition_to.Level and \

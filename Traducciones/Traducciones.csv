@@ -15,9 +15,11 @@ E06_S01_D01,"Malpica, ano 1936."
 E06_S02_D02,1ª etapa do Camiño dos Faros.  (Malpica - Niñons)
 E07_S01_D01,-Oh... xa durmen... Outro día rematarei a historia de como Mariña acendeu todos os faros dende Malpica a Fisterra e de como todas as familias que visitou lle axudaron a loitar contra ese ser escuro.
 E08_S01_D01,Oxalá moitas persoas sigan facendo o Camiño dos Faros e así a nosa Galiza nunca deixe de brillar.
-TITULO_JUEGO,Con sal e breixo
+TITULO_JUEGO,[b]Con  sal  e  breixo[/b]
 JUGAR,Xogar
-CREDITOS,Creéditos
+CREDITOS_TITLE,[b]Créditos[/b]
+CONTROLES_TITLE,[b]Controis[/b]
+CREDITOS,Créditos
 CONTROLES,Controis
 CONTINUAR,Continuar
 MENU,Menú

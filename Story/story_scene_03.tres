@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SceneSequenceData" load_steps=3 format=3 uid="uid://dxi6a68flp1o0"]
+
+[ext_resource type="Script" uid="uid://cl5fhtbypbsfn" path="res://Story/scene_sequence_data.gd" id="1_dfjyg"]
+[ext_resource type="Texture2D" uid="uid://du11ungmwv083" path="res://Imagenes/Escenas/escena3.png" id="1_ptbia"]
+
+[resource]
+script = ExtResource("1_dfjyg")
+dialog_list = Array[String](["E03_S01_D01", "E03_S01_D02"])
+background_color = Color(0, 0, 0, 1)
+background_image = ExtResource("1_ptbia")
+metadata/_custom_type_script = "uid://cl5fhtbypbsfn"
