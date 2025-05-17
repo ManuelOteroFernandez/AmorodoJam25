@@ -1,5 +1,7 @@
 extends Node
 
+signal player_spawn_signal
+
 var lastCheckpointData = {
 	"levelPath": null,
 	"position": Vector2.ZERO
@@ -14,14 +16,8 @@ func set_last_checkpoint_data(levelPath, position):
 func restart_in_checkpoint():
 	player.positon = lastCheckpointData.get("positon", player.position)
 
-func spawn_player(spawn_positon: Vector2):
+func spawn_player(spawn_positon: Vector2, parent:Node):
 	player = playerTscn.instantiate()
-	add_child(player)
+	parent.add_child(player)
 	player.global_position = spawn_positon
-	
-func find_level_spawn() -> Node2D:
-	return get_tree().get_first_node_in_group("player_spawner")
-
-func start_game():
-	var player_spawner = find_level_spawn()
-	spawn_player(player_spawner.global_position)
+	player_spawn_signal.emit()
