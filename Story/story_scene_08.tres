@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SceneSequenceData" load_steps=2 format=3 uid="uid://dcha6xa3xu6ct"]
+
+[ext_resource type="Script" uid="uid://cl5fhtbypbsfn" path="res://Story/scene_sequence_data.gd" id="1_pi41c"]
+
+[resource]
+script = ExtResource("1_pi41c")
+dialog_list = Array[String](["E08_S01_D01"])
+background_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://cl5fhtbypbsfn"

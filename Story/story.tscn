@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://otbxi8fscu2f"]
+
+[ext_resource type="Script" uid="uid://b5olgihyyuroi" path="res://Story/story.gd" id="1_05t7c"]
+[ext_resource type="Texture2D" uid="uid://du11ungmwv083" path="res://Imagenes/Escenas/escena3.png" id="1_q6eau"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05t7c"]
+bg_color = Color(0, 0, 0, 0.537255)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="Story" type="CanvasLayer" groups=["menu"]]
+layer = 5
+follow_viewport_enabled = true
+script = ExtResource("1_05t7c")
+time_inner_dialog = 10
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_q6eau")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_top = 0.73
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -0.0400085
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_05t7c")
+bbcode_enabled = true
+text = "asdasd asd  sad as "
+horizontal_alignment = 1
+vertical_alignment = 1

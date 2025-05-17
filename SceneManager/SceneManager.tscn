@@ -18,13 +18,13 @@ process_mode = 1
 autoplay = true
 
 [node name="UI" type="CanvasLayer" parent="."]
-layer = 3
+layer = 10
 
 [node name="MenuPause" parent="UI" instance=ExtResource("1_x7qrj")]
 visible = false
 
 [node name="TouchControls" parent="UI" instance=ExtResource("2_1bbdn")]
-layer = 10
+layer = 4
 visible = false
 
 [node name="TransitionManager" parent="UI" instance=ExtResource("3_5ufeb")]
