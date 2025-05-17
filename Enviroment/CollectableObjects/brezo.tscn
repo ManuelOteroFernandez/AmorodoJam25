@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwb0rypgpm4g4"]
 
 [ext_resource type="Script" uid="uid://b0lfccndlqnro" path="res://Enviroment/CollectableObjects/base_collectable_object.gd" id="1_l7xou"]
-[ext_resource type="Texture2D" uid="uid://cj5nd6lem311n" path="res://icon.svg" id="2_0uwf2"]
+[ext_resource type="Texture2D" uid="uid://ctc2ro5nwbk1r" path="res://Imagenes/Entorno/BrezoON.png" id="2_l7xou"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fow8g"]
 
@@ -12,6 +12,6 @@ script = ExtResource("1_l7xou")
 shape = SubResource("CircleShape2D_fow8g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_0uwf2")
+texture = ExtResource("2_l7xou")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
