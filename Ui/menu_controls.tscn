@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c45km1iy17la1"]
+[gd_scene load_steps=4 format=3 uid="uid://c45km1iy17la1"]
 
 [ext_resource type="Script" uid="uid://c1fut38yiwkcx" path="res://Ui/menu_back.gd" id="1_ws8ln"]
+[ext_resource type="Texture2D" uid="uid://duyqgofcgn55" path="res://Ui/controles.png" id="2_e2q5k"]
+
+[sub_resource type="FontVariation" id="FontVariation_e2q5k"]
+spacing_glyph = 1
 
 [node name="MenuCredits" type="Control" groups=["menu"]]
 layout_mode = 3
@@ -11,17 +15,47 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ws8ln")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -470.0
+offset_top = -463.0
+offset_right = 810.0
+offset_bottom = 257.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.735, 0.735)
+pivot_offset = Vector2(0.5, 0.5)
+texture = ExtResource("2_e2q5k")
+stretch_mode = 3
+
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -56.0
-offset_top = 133.0
-offset_right = 74.0
-offset_bottom = 177.0
+offset_left = -229.0
+offset_top = 57.0
+offset_right = 234.0
+offset_bottom = 136.0
 grow_horizontal = 2
-text = "Controles"
+theme_override_fonts/bold_font = SubResource("FontVariation_e2q5k")
+bbcode_enabled = true
+text = "CREDITOS_TITLE"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -36,6 +70,8 @@ offset_left = -61.568
 offset_top = -15.808
 offset_right = 62.432
 offset_bottom = 15.192
+theme_override_font_sizes/font_size = 25
 text = "Volver al menu"
+flat = true
 
 [connection signal="button_up" from="BtnBackMainMenu" to="." method="back"]
