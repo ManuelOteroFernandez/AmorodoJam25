@@ -8,13 +8,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wllbe"]
 size = Vector2(353, 132)
 
-[node name="BaseInteractableObject" instance=ExtResource("1_ii7mo")]
+[node name="Faro" instance=ExtResource("1_ii7mo")]
 script = ExtResource("2_5vctb")
 faroOn = ExtResource("3_5vctb")
 faroOff = ExtResource("3_vx3xr")
 
 [node name="Faro" type="Sprite2D" parent="." index="0"]
-position = Vector2(17, -466)
+position = Vector2(-3, -569)
 scale = Vector2(3, 3)
 texture = ExtResource("3_vx3xr")
 

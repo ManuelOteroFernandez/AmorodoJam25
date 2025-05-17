@@ -2,16 +2,18 @@ extends Node2D
 class_name ZoneManager
 
 @export var zone_size: Vector2 = Vector2(3840.0,2176.0)
+@export var camera_zoom: float = 0.3
 
 var initial_position: Vector2
 var trackPlayer: bool = false
 
 func _ready() -> void:
 	Global.player_spawn_signal.connect(_on_player_spawn)
+	$CameraTarget/Camera2D.zoom = Vector2(camera_zoom,camera_zoom)
 
 func _on_player_spawn():
 	Global.player.change_zone_signal.connect(on_player_change_zone)
-
+	on_player_change_zone()
 
 
 func on_player_change_zone():

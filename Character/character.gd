@@ -14,15 +14,16 @@ enum STATES {
 signal change_state_signal
 signal change_zone_signal
 signal do_action_signal(sender:Player)
+signal take_damage_signal
 
 
 # Movement variables
 @export var speed = 50000
-@export var jump_force = -1000
-@export var gravity = 1800
+@export var jump_force = -1500
+@export var gravity = 4200
 @export var wall_gravity = 800
 @export var dash_velocity = 100000
-@export var dash_distance = 500
+@export var dash_distance = 600
 @export var dash_time_cooldown = 2
 
 
@@ -155,6 +156,7 @@ func _state_dashing_ends():
 		dash_timer_cooldown.start()
 	
 func _state_climbing_init():
+	block_input = false
 	_change_state(STATES.CLIMBING)
 	velocity = Vector2.ZERO
 	
@@ -194,7 +196,7 @@ func _jump():
 		vertical_velocity = jump_force
 		_change_state(STATES.JUMPING)
 		
-func _wall_jump():	
+func _wall_jump():
 	if current_state == STATES.CLIMBING:
 		_change_state(STATES.JUMPING)
 		vertical_velocity = jump_force
@@ -236,3 +238,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	
 func end_interaction():
 	_change_state()
+	
+func recieve_damage():
+	take_damage_signal.emit()

@@ -18,7 +18,8 @@ var current_transition = Transition_to.None
 var current_level_index = 0
 
 const level_list = [
-	"res://Testing/TestWorld.tscn"
+	"res://Testing/TestWorld.tscn",
+	"res://Enviroment/Levels/Level01.tscn"
 ]
 
 func _ready() -> void:
@@ -33,10 +34,10 @@ func _ready() -> void:
 func open_level(level_index:int):
 	
 	if level_index < len(level_list):
-		pause(true)
 		next_scene = level_list[level_index]
 		current_level_index = level_index
 		current_transition = Transition_to.Level
+		pause(true)
 		tsm.start_transition(transition)
 	else:
 		current_level_index = 0
@@ -81,7 +82,8 @@ func close_menu():
 	tsm.start_transition(transition)
 	
 func _on_mid_transition():
-	tsm.end_transition()
+	if current_transition != Transition_to.None:
+		tsm.end_transition()
 	
 	if current_transition == Transition_to.Level:
 		$CurrentSceneStack.get_child(0).queue_free()

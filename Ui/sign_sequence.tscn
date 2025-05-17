@@ -1,38 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cua2u0ylan6f0"]
+[gd_scene load_steps=2 format=3 uid="uid://cua2u0ylan6f0"]
 
 [ext_resource type="Script" uid="uid://cy5pgjtdlbxy4" path="res://Ui/sign_sequence.gd" id="1_n005k"]
-[ext_resource type="Script" uid="uid://ydxtmnia5e8l" path="res://Ui/sign_sequence_data.gd" id="2_vd71s"]
 
-[sub_resource type="Resource" id="Resource_yxefa"]
-script = ExtResource("2_vd71s")
-text = &"Holiii"
-background_color = Color(0, 0, 0, 1)
-metadata/_custom_type_script = "uid://ydxtmnia5e8l"
+[node name="SignSequence" type="CanvasLayer"]
+layer = 11
+script = ExtResource("1_n005k")
 
-[sub_resource type="Resource" id="Resource_vd71s"]
-script = ExtResource("2_vd71s")
-text = &"como estas"
-background_color = Color(0, 0, 0, 1)
-metadata/_custom_type_script = "uid://ydxtmnia5e8l"
-
-[sub_resource type="Resource" id="Resource_rdpub"]
-script = ExtResource("2_vd71s")
-text = &"yo bien"
-background_color = Color(0, 0, 0, 1)
-metadata/_custom_type_script = "uid://ydxtmnia5e8l"
-
-[node name="SignSequence" type="Control"]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_n005k")
-elements = Array[ExtResource("2_vd71s")]([SubResource("Resource_yxefa"), SubResource("Resource_vd71s"), SubResource("Resource_rdpub")])
-wait_time = 3.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,10 +22,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="Control"]
 one_shot = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
