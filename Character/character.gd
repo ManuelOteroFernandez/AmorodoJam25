@@ -14,6 +14,7 @@ enum STATES {
 signal change_state_signal
 signal change_zone_signal
 signal do_action_signal(sender:Player)
+signal take_damage_signal
 
 
 # Movement variables
@@ -236,3 +237,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	
 func end_interaction():
 	_change_state()
+	
+func recieve_damage():
+	take_damage_signal.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://blkw24rtb4gw0"]
+[gd_scene load_steps=12 format=4 uid="uid://blkw24rtb4gw0"]
 
 [ext_resource type="Script" uid="uid://bcrv5116w2y4l" path="res://Enviroment/Levels/base_level_script.gd" id="1_6yjuv"]
 [ext_resource type="PackedScene" uid="uid://cua2u0ylan6f0" path="res://Ui/sign_sequence.tscn" id="1_dqi4a"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b2pn1ydyik1qs" path="res://Enviroment/ZoneSystem/zone_manager.tscn" id="4_b2yt4"]
 [ext_resource type="TileSet" uid="uid://bh01i0c11p0sv" path="res://Enviroment/Levels/Tileset01.tres" id="5_8art6"]
 [ext_resource type="PackedScene" uid="uid://bbtq1cck1rqho" path="res://Enviroment/Levels/end_level_area.tscn" id="7_e08hx"]
+[ext_resource type="PackedScene" uid="uid://27vsn4wh001y" path="res://Enviroment/InteractableObjects/check_point.tscn" id="8_8art6"]
+[ext_resource type="PackedScene" uid="uid://cs0s8uhpsx4pr" path="res://Enviroment/Enemies/DamageArea.tscn" id="9_d6c6b"]
 
 [sub_resource type="Resource" id="Resource_d6c6b"]
 script = ExtResource("2_6yjuv")
@@ -54,7 +56,13 @@ tile_map_data = PackedByteArray("AAATAA8AAAABAAEAAAATAA4AAAABAAEAAAATAA0AAAABAAE
 tile_set = ExtResource("5_8art6")
 
 [node name="InitialPosition" type="Node2D" parent="." groups=["player_spawner"]]
-position = Vector2(1396, 1180)
+position = Vector2(473, 1169)
 
 [node name="EndLevelArea" parent="." instance=ExtResource("7_e08hx")]
 position = Vector2(3075, 1185)
+
+[node name="CheckPoint" parent="." instance=ExtResource("8_8art6")]
+position = Vector2(1049, 1245)
+
+[node name="DamageArea" parent="." instance=ExtResource("9_d6c6b")]
+position = Vector2(1994, 1268)

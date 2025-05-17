@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dcecwm845a2o5"]
+[gd_scene load_steps=17 format=4 uid="uid://dcecwm845a2o5"]
 
 [ext_resource type="Script" uid="uid://hfy38kyqujdn" path="res://Testing/test_world.gd" id="1_jvubo"]
 [ext_resource type="PackedScene" uid="uid://cua2u0ylan6f0" path="res://Ui/sign_sequence.tscn" id="1_tul1b"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://6w2eqnwr6bi7" path="res://Enviroment/InteractableObjects/Faros/Faro.tscn" id="7_tul1b"]
 [ext_resource type="Shader" uid="uid://bkwygh6gvscig" path="res://Testing/TestWorld.gdshader" id="7_uh53g"]
 [ext_resource type="PackedScene" uid="uid://bbtq1cck1rqho" path="res://Enviroment/Levels/end_level_area.tscn" id="9_jvubo"]
+[ext_resource type="PackedScene" uid="uid://dwb0rypgpm4g4" path="res://Enviroment/CollectableObjects/brezo.tscn" id="11_xokkf"]
+[ext_resource type="PackedScene" uid="uid://cs0s8uhpsx4pr" path="res://Enviroment/Enemies/DamageArea.tscn" id="12_u3w0i"]
+[ext_resource type="PackedScene" uid="uid://27vsn4wh001y" path="res://Enviroment/InteractableObjects/check_point.tscn" id="13_urr5p"]
 
 [sub_resource type="Resource" id="Resource_xokkf"]
 script = ExtResource("3_psqbx")
@@ -78,3 +81,12 @@ position = Vector2(3280, 739)
 
 [node name="EndLevelArea" parent="." instance=ExtResource("9_jvubo")]
 position = Vector2(3829, 981)
+
+[node name="Brezo" parent="." instance=ExtResource("11_xokkf")]
+position = Vector2(1194, 1624)
+
+[node name="DamageArea" parent="." instance=ExtResource("12_u3w0i")]
+position = Vector2(2747, 1937)
+
+[node name="CheckPoint" parent="." instance=ExtResource("13_urr5p")]
+position = Vector2(2791, 1266)

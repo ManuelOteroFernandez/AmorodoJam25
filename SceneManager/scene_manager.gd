@@ -82,7 +82,8 @@ func close_menu():
 	tsm.start_transition(transition)
 	
 func _on_mid_transition():
-	tsm.end_transition()
+	if current_transition != Transition_to.None:
+		tsm.end_transition()
 	
 	if current_transition == Transition_to.Level:
 		$CurrentSceneStack.get_child(0).queue_free()
