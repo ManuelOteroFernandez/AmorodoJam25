@@ -14,7 +14,7 @@ func _ready() -> void:
 		$Control/Timer.timeout.connect(_complete_sequence)
 		$Control/Timer.start()
 	else: 
-		queue_free()
+		_complete_sequence()
 		
 func _hide_data():
 	current_index += 1
