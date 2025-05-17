@@ -9,7 +9,7 @@ E04_S01_D02,"Corrían rumores de que o problema se estendera por toda a costa, q
 E04_S01_D03,"Os veciños andaban preocupados, parecía terlle mudado o carácter e só eran quen de discutir se a culpa era das meigas, do mal de ollo ou do Gatipedro, que aproveitaba a escuridade para facer das súas."
 E05_S01_D01,"Mariña, que vivía aquí preto, pensou que a situación tiña que rematar. Se ninguén o facía, ela mesma iría a cada pobo e a cada faro devolvendo a luz á Galiza escurecida, aínda que fose coa luz da lúa como compañeira e baixo a tormenta."
 E05_S01_D02,"Decidiu recoller breixo e deixalo nas casas que atopaba polo camiño, para que as familias estivesen protexidas, advertíndoas tamén de que gardasen sal abondo, por se en verdade o Gatipedro era o culpable, poder espantalo para sempre."
-E05_S01_D03,Facia todo isto por vontade aínda que sabía que a xente agradeceriallo sempre. Nin ela imaxinaba de que forma o farían máis adiante.
+E05_S01_D03,"Facia todo isto por vontade aínda que sabía que a xente agradeceriallo sempre. Nin ela imaxinaba de que forma o farían máis adiante."
 E05_S01_D04,"E así, como volo conto, foi como Mariña comezou o Camiño dos Faros co único obxectivo de devolver a luz ao seu pobo."
 E06_S01_D01,"Malpica, ano 1936."
 E06_S02_D02,1ª etapa do Camiño dos Faros.  (Malpica - Niñons)
@@ -24,3 +24,14 @@ CONTROLES,Controis
 CONTINUAR,Continuar
 MENU,Menú
 CONTINUARA_FINAL,Continuara...
+E09_S01_D01,Ola!Que tal? Deixovos unhas ramiñas de breixo para que estéades protexidos. Lembrade ter sal de abondo por se o Gatipedro anda detrás desta leria. Mentres, vou ver se acendo os faros.
+E09_S02_D01,Ola!Como estades? Lembrade ter sal de abondo por se o Gatipedro anda detrás desta leria. Mentres, vou ver se acendo os faros e mirarei de traervos unhas ramiñas de breixo.
+TEXTO_CREDITOS_ANDREA,Historia,texto e arte: Andrea Gutierrez
+TEXTO_CREDITOS_MANUEL,Programación e deseño: Manuel Otero.
+TEXTO_CREDITOS_FONDO,Fondo(itch.io): saukgp
+TEXTO_CREDITOS_MUSICA,Música: Pizza Doggy(https://pizzadoggy.itch.io/cozy-tunes)
+TEXTO_CREDITOS_SONIDOS,Son: Atelier Magicae e Nox_Sound_Design
+TEXTO_CREDITOS_AGRADEMECENTO,Grazas por ser fonte de inspiración:
+TEXTO_CREDITOS_AGRADEMECENTO_01,Clara Cerviño(debuxos dos faros)
+TEXTO_CREDITOS_AGRADEMECENTO_02,Asociación O Camiño dos Faros (información sobre a ruta)
+TEXTO_CREDITOS_AGRADEMECENTO_03,Alvaro Cunqueiro(Gatipedro)
