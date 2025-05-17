@@ -19,11 +19,11 @@ signal take_damage_signal
 
 # Movement variables
 @export var speed = 50000
-@export var jump_force = -1000
-@export var gravity = 1800
+@export var jump_force = -1500
+@export var gravity = 4200
 @export var wall_gravity = 800
 @export var dash_velocity = 100000
-@export var dash_distance = 500
+@export var dash_distance = 600
 @export var dash_time_cooldown = 2
 
 
