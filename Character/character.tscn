@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://do5jmch55nf2d"]
+[gd_scene load_steps=14 format=3 uid="uid://do5jmch55nf2d"]
 
 [ext_resource type="Script" uid="uid://dp5ry1iahxw6s" path="res://Character/character.gd" id="1_nwtvh"]
+[ext_resource type="Texture2D" uid="uid://dlspx1nj61cyf" path="res://Imagenes/Prota/salto2.png" id="2_rgbux"]
 [ext_resource type="Texture2D" uid="uid://bdoln5fpqqr6r" path="res://Imagenes/Prota/caer2.png" id="2_veuuo"]
 [ext_resource type="Texture2D" uid="uid://dytvb58trousr" path="res://Imagenes/Prota/caida1.png" id="3_rgbux"]
 [ext_resource type="Texture2D" uid="uid://4m7ts0qgjvi" path="res://Imagenes/Prota/salto1.png" id="4_f0n7x"]
@@ -19,10 +20,7 @@ height = 248.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_f0n7x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_veuuo")
+"texture": ExtResource("2_rgbux")
 }],
 "loop": true,
 "name": &"dash",
@@ -93,9 +91,7 @@ shape = SubResource("CapsuleShape2D_nwtvh")
 position = Vector2(1, 7)
 scale = Vector2(0.993333, 1)
 sprite_frames = SubResource("SpriteFrames_t4sv1")
-animation = &"run"
-frame = 2
-frame_progress = 0.288048
+animation = &"dash"
 flip_h = true
 script = ExtResource("11_rgbux")
 
