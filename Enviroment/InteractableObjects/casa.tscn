@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dw236h5obxnd6"]
+[gd_scene load_steps=7 format=3 uid="uid://dw236h5obxnd6"]
 
 [ext_resource type="PackedScene" uid="uid://b4jcq25d060fl" path="res://Enviroment/InteractableObjects/base_interactable_object.tscn" id="1_bvgwg"]
 [ext_resource type="Script" uid="uid://cmf02oc3bx14y" path="res://Enviroment/InteractableObjects/casa.gd" id="2_wa8e4"]
@@ -7,6 +7,13 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n15i"]
 size = Vector2(456, 142)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa8e4"]
+bg_color = Color(0.889998, 0.871922, 0.835816, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="Casa" instance=ExtResource("1_bvgwg")]
 script = ExtResource("2_wa8e4")
@@ -36,15 +43,7 @@ offset_right = 213.0
 offset_bottom = -334.0
 script = ExtResource("4_wa8e4")
 
-[node name="ColorRect" type="ColorRect" parent="ResponseInteraction" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ResponseInteraction" index="1"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ResponseInteraction" index="0"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,5 +52,6 @@ offset_left = 23.0
 offset_right = -24.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wa8e4")
 horizontal_alignment = 1
 vertical_alignment = 1
