@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ctc2ro5nwbk1r" path="res://Imagenes/Entorno/BrezoON.png" id="2_l7xou"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fow8g"]
+radius = 263.048
 
 [node name="Brezo" type="Area2D"]
 script = ExtResource("1_l7xou")
