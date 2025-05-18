@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://blkw24rtb4gw0"]
+[gd_scene load_steps=18 format=4 uid="uid://blkw24rtb4gw0"]
 
 [ext_resource type="Script" uid="uid://bcrv5116w2y4l" path="res://Enviroment/Levels/base_level_script.gd" id="1_6yjuv"]
 [ext_resource type="PackedScene" uid="uid://cua2u0ylan6f0" path="res://Ui/sign_sequence.tscn" id="1_dqi4a"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://6w2eqnwr6bi7" path="res://Enviroment/InteractableObjects/Faros/Faro.tscn" id="9_8art6"]
 [ext_resource type="PackedScene" uid="uid://cs0s8uhpsx4pr" path="res://Enviroment/Enemies/DamageArea.tscn" id="9_d6c6b"]
 [ext_resource type="PackedScene" uid="uid://bbtq1cck1rqho" path="res://Enviroment/Levels/end_level_area.tscn" id="10_d6c6b"]
+[ext_resource type="Texture2D" uid="uid://cfo1fktjwx8rt" path="res://Imagenes/Entorno/arbol1.png" id="11_5edwn"]
+[ext_resource type="Texture2D" uid="uid://ce1mjx0rau2c7" path="res://Imagenes/Entorno/arbusto.png" id="12_3ewd1"]
+[ext_resource type="Texture2D" uid="uid://b2rs81eu7lqkf" path="res://Imagenes/Entorno/arbol2.png" id="13_fgjuq"]
 
 [sub_resource type="Resource" id="Resource_d6c6b"]
 script = ExtResource("2_6yjuv")
@@ -70,7 +73,7 @@ tile_set = ExtResource("5_8art6")
 collision_enabled = false
 
 [node name="InitialPosition" type="Node2D" parent="." groups=["player_spawner"]]
-position = Vector2(639, 984)
+position = Vector2(25179, -800)
 
 [node name="Brezo" parent="." instance=ExtResource("8_b2yt4")]
 position = Vector2(14080, 919)
@@ -96,6 +99,10 @@ position = Vector2(8705, 2027)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 position = Vector2(3.25, 0)
 shape = SubResource("RectangleShape2D_d6c6b")
+
+[node name="Arbusto" type="Sprite2D" parent="DamageArea"]
+position = Vector2(19905, -2784)
+texture = ExtResource("12_3ewd1")
 
 [node name="DamageArea2" parent="." instance=ExtResource("9_d6c6b")]
 position = Vector2(9350, 2027)
@@ -125,3 +132,208 @@ scale = Vector2(14.645, 14.645)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea5"]
 shape = SubResource("RectangleShape2D_sqajy")
+
+[node name="Arbol1" type="Sprite2D" parent="."]
+position = Vector2(3581, 1036)
+scale = Vector2(1.87, 1.5925)
+texture = ExtResource("11_5edwn")
+
+[node name="Arbusto" type="Sprite2D" parent="."]
+position = Vector2(8013, 877)
+scale = Vector2(1.545, 1.32333)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbol2" type="Sprite2D" parent="."]
+position = Vector2(11899, 943)
+scale = Vector2(1.45333, 1.49875)
+texture = ExtResource("13_fgjuq")
+
+[node name="Arbol2" type="Sprite2D" parent="Arbol2"]
+position = Vector2(10433.9, -1922.27)
+scale = Vector2(1.45333, 1.49875)
+texture = ExtResource("13_fgjuq")
+
+[node name="Arbol3" type="Sprite2D" parent="."]
+position = Vector2(12063, 1068)
+scale = Vector2(1.23833, 1.175)
+texture = ExtResource("13_fgjuq")
+
+[node name="Arbusto2" type="Sprite2D" parent="."]
+position = Vector2(16002, 3105)
+scale = Vector2(0.956667, 0.836667)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbol4" type="Sprite2D" parent="."]
+position = Vector2(12342, 969)
+scale = Vector2(1.49333, 1.44125)
+texture = ExtResource("13_fgjuq")
+
+[node name="Arbusto3" type="Sprite2D" parent="."]
+position = Vector2(12296, -753)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto4" type="Sprite2D" parent="."]
+position = Vector2(12156, -975)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto5" type="Sprite2D" parent="."]
+position = Vector2(12037, -996)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbol5" type="Sprite2D" parent="."]
+position = Vector2(15836, -1641)
+texture = ExtResource("11_5edwn")
+
+[node name="Arbusto6" type="Sprite2D" parent="."]
+position = Vector2(16131, 3085)
+scale = Vector2(1.08333, 1.03)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto7" type="Sprite2D" parent="."]
+position = Vector2(28539, -724)
+scale = Vector2(0.8, 0.733333)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto8" type="Sprite2D" parent="."]
+position = Vector2(28438, -757)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto9" type="Sprite2D" parent="."]
+position = Vector2(29227, -748)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto10" type="Sprite2D" parent="."]
+position = Vector2(29327, -697)
+scale = Vector2(0.64, 0.613333)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto11" type="Sprite2D" parent="."]
+position = Vector2(29374, -774)
+scale = Vector2(1.19667, 1.12667)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbol7" type="Sprite2D" parent="."]
+position = Vector2(31350, -1584)
+scale = Vector2(2.30167, 2.39375)
+texture = ExtResource("13_fgjuq")
+
+[node name="Arbol6" type="Sprite2D" parent="."]
+position = Vector2(31058, -872)
+texture = ExtResource("11_5edwn")
+
+[node name="Arbol8" type="Sprite2D" parent="."]
+position = Vector2(31896, -880)
+texture = ExtResource("11_5edwn")
+
+[node name="Arbol10" type="Sprite2D" parent="."]
+position = Vector2(32173, -1067)
+scale = Vector2(1.78667, 1.835)
+texture = ExtResource("11_5edwn")
+
+[node name="Arbol9" type="Sprite2D" parent="."]
+position = Vector2(31628, -1043)
+texture = ExtResource("13_fgjuq")
+
+[node name="Arbusto12" type="Sprite2D" parent="."]
+position = Vector2(21164, -491)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto13" type="Sprite2D" parent="."]
+position = Vector2(20998, -503)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto14" type="Sprite2D" parent="."]
+position = Vector2(21308, -492)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto15" type="Sprite2D" parent="."]
+position = Vector2(8177, 905)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto16" type="Sprite2D" parent="."]
+position = Vector2(8312, 860)
+scale = Vector2(1.68, 1.57)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto17" type="Sprite2D" parent="."]
+position = Vector2(14142, 2447)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbol11" type="Sprite2D" parent="."]
+position = Vector2(19422, -878)
+texture = ExtResource("11_5edwn")
+
+[node name="Arbol12" type="Sprite2D" parent="."]
+position = Vector2(19668, -1381)
+scale = Vector2(1.39833, 1.89625)
+texture = ExtResource("13_fgjuq")
+
+[node name="Arbusto18" type="Sprite2D" parent="."]
+position = Vector2(15691, -1513)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto19" type="Sprite2D" parent="."]
+position = Vector2(15140, -249)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbol13" type="Sprite2D" parent="."]
+position = Vector2(26851, -1263)
+texture = ExtResource("11_5edwn")
+
+[node name="Arbusto21" type="Sprite2D" parent="."]
+position = Vector2(12623.3, 3012.25)
+scale = Vector2(2.05833, 1.66833)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto20" type="Sprite2D" parent="."]
+position = Vector2(12579, 3082)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto22" type="Sprite2D" parent="."]
+position = Vector2(12799, 3092)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto23" type="Sprite2D" parent="."]
+position = Vector2(12896, 3085)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto24" type="Sprite2D" parent="."]
+position = Vector2(13790, 1013)
+scale = Vector2(1.28667, 1.23)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto25" type="Sprite2D" parent="."]
+position = Vector2(18215, 525)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto26" type="Sprite2D" parent="."]
+position = Vector2(19854.5, 524.5)
+scale = Vector2(1.13, 1.05667)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto27" type="Sprite2D" parent="."]
+position = Vector2(19996, 400)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto28" type="Sprite2D" parent="."]
+position = Vector2(15039, 1163)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbusto29" type="Sprite2D" parent="."]
+position = Vector2(15140, 1186)
+texture = ExtResource("12_3ewd1")
+
+[node name="Arbol14" type="Sprite2D" parent="."]
+position = Vector2(3893, 302)
+scale = Vector2(2.59167, 2.8225)
+texture = ExtResource("13_fgjuq")
+
+[node name="Arbol16" type="Sprite2D" parent="."]
+position = Vector2(4375, 616)
+scale = Vector2(2.1975, 2.03687)
+texture = ExtResource("13_fgjuq")
+
+[node name="Arbol15" type="Sprite2D" parent="."]
+position = Vector2(4159, 1123)
+scale = Vector2(1.25833, 1.19375)
+texture = ExtResource("11_5edwn")
