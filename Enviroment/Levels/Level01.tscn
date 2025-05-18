@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://blkw24rtb4gw0"]
+[gd_scene load_steps=33 format=4 uid="uid://blkw24rtb4gw0"]
 
 [ext_resource type="Script" uid="uid://bcrv5116w2y4l" path="res://Enviroment/Levels/base_level_script.gd" id="1_6yjuv"]
 [ext_resource type="PackedScene" uid="uid://cua2u0ylan6f0" path="res://Ui/sign_sequence.tscn" id="1_dqi4a"]
@@ -16,16 +16,22 @@
 [ext_resource type="Texture2D" uid="uid://cfo1fktjwx8rt" path="res://Imagenes/Entorno/arbol1.png" id="11_5edwn"]
 [ext_resource type="Texture2D" uid="uid://ce1mjx0rau2c7" path="res://Imagenes/Entorno/arbusto.png" id="12_3ewd1"]
 [ext_resource type="Texture2D" uid="uid://b2rs81eu7lqkf" path="res://Imagenes/Entorno/arbol2.png" id="13_fgjuq"]
-[ext_resource type="PackedScene" uid="uid://dw236h5obxnd6" path="res://Enviroment/InteractableObjects/casa.tscn" id="14_1v5rt"]
+[ext_resource type="PackedScene" path="res://Enviroment/InteractableObjects/casa.tscn" id="14_1v5rt"]
 [ext_resource type="Texture2D" uid="uid://bhlsycw6as2pm" path="res://Imagenes/Entorno/CASA2.png" id="15_msfs8"]
 [ext_resource type="Texture2D" uid="uid://dsnhnfvtb5ul0" path="res://Imagenes/Entorno/CASA3.png" id="16_vmkie"]
-[ext_resource type="PackedScene" uid="uid://c61awu0yncuwl" path="res://Pedrigato/gatipedro.tscn" id="17_iquee"]
+[ext_resource type="PackedScene" path="res://Pedrigato/gatipedro.tscn" id="17_iquee"]
 [ext_resource type="Texture2D" uid="uid://blry4qdwtul8y" path="res://Imagenes/Entorno/CASA1.png" id="18_msfs8"]
 [ext_resource type="Texture2D" uid="uid://c6grw5b7ont4" path="res://Imagenes/Fondo/NightForest/NightForest/Layers/1.png" id="20_iquee"]
 
 [sub_resource type="Resource" id="Resource_d6c6b"]
 script = ExtResource("2_6yjuv")
-text = &"Nivel02"
+text = &"E06_S01_D01"
+background_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://ydxtmnia5e8l"
+
+[sub_resource type="Resource" id="Resource_ot18y"]
+script = ExtResource("2_6yjuv")
+text = &"E06_S02_D02"
 background_color = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://ydxtmnia5e8l"
 
@@ -74,7 +80,7 @@ size = Vector2(269, 653.5)
 script = ExtResource("1_6yjuv")
 
 [node name="SignSequence" parent="." instance=ExtResource("1_dqi4a")]
-elements = Array[ExtResource("2_6yjuv")]([SubResource("Resource_d6c6b")])
+elements = Array[ExtResource("2_6yjuv")]([SubResource("Resource_d6c6b"), SubResource("Resource_ot18y")])
 wait_time = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -158,7 +164,7 @@ tile_map_data = PackedByteArray("AAATAAwAAAABAAEAAAATAAsAAAABAAAAAAASAAwAAAABAAE
 tile_set = ExtResource("5_8art6")
 
 [node name="InitialPosition" type="Node2D" parent="." groups=["player_spawner"]]
-position = Vector2(838, 1118)
+position = Vector2(1447, 1062)
 
 [node name="Brezo" parent="." instance=ExtResource("8_b2yt4")]
 position = Vector2(14080, 919)

@@ -27,15 +27,15 @@ one_shot = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -260.0
-offset_top = -106.0
-offset_right = 334.0
-offset_bottom = 112.0
+anchors_preset = -1
+anchor_left = 0.513
+anchor_top = 0.926
+anchor_right = 0.513
+anchor_bottom = 0.926
+offset_left = -296.976
+offset_top = -72.048
+offset_right = 297.024
+offset_bottom = 37.952
 grow_horizontal = 2
 grow_vertical = 2
 text = "awdawd aw daw d"
