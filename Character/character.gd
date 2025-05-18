@@ -204,6 +204,7 @@ func _wall_jump():
 		#print("velocidad inicial=> {0}".format([horizontal_velocity]))
 		
 func _change_state(new_state:STATES = STATES.UNDEFINED):
+	
 	if current_state == STATES.INTERACTING:
 		block_input = false
 	if new_state == STATES.INTERACTING:
@@ -230,6 +231,11 @@ func _change_state(new_state:STATES = STATES.UNDEFINED):
 	if not can_double_jump and current_state in [STATES.IDLE, STATES.RUNNING]:
 		can_double_jump = true
 	
+	if current_state == STATES.RUNNING:
+		$AudioStreamPlayer2D.play()
+	else:
+		$AudioStreamPlayer2D.stop()
+		
 	change_state_signal.emit()
 
 

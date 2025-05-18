@@ -6,3 +6,4 @@ func _ready() -> void:
 func _do_damage(body: Node2D) -> void:
 	if body.is_in_group("player") and body is Player:
 		(body as Player).recieve_damage()
+		$AudioStreamPlayer2D.play()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://6w2eqnwr6bi7"]
+[gd_scene load_steps=7 format=3 uid="uid://6w2eqnwr6bi7"]
 
 [ext_resource type="PackedScene" uid="uid://b4jcq25d060fl" path="res://Enviroment/InteractableObjects/base_interactable_object.tscn" id="1_ii7mo"]
 [ext_resource type="Script" uid="uid://xjvq0d1pjf5q" path="res://Enviroment/InteractableObjects/Faros/faro.gd" id="2_5vctb"]
 [ext_resource type="Texture2D" uid="uid://c5rp46movyaij" path="res://Imagenes/Faros/faro1.png" id="3_5vctb"]
 [ext_resource type="Texture2D" uid="uid://btupycvadht65" path="res://Imagenes/Faros/faro1off.png" id="3_vx3xr"]
+[ext_resource type="AudioStream" uid="uid://cgwn8eyxy5wyn" path="res://Ui/Sonido/faro.wav" id="5_vx3xr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wllbe"]
 size = Vector2(353, 132)
@@ -25,3 +26,6 @@ shape = SubResource("RectangleShape2D_wllbe")
 [node name="InteractableButons" parent="." index="2"]
 offset_top = -612.0
 offset_bottom = -412.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("5_vx3xr")
