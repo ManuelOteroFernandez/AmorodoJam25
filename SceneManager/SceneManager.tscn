@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bselyc7o5vsy"]
+[gd_scene load_steps=6 format=3 uid="uid://bselyc7o5vsy"]
 
 [ext_resource type="Script" uid="uid://bosfwy42whp5r" path="res://SceneManager/scene_manager.gd" id="1_sytta"]
 [ext_resource type="PackedScene" uid="uid://d2n8rtknhfj5g" path="res://Ui/menu_pause.tscn" id="1_x7qrj"]
 [ext_resource type="PackedScene" uid="uid://cyqnvbwnivkbj" path="res://Ui/tactil/touch_controls.tscn" id="2_1bbdn"]
+[ext_resource type="AudioStream" uid="uid://bse15gkjcrey4" path="res://Ui/Sonido/Forgotten Biomes.ogg" id="2_u2x0j"]
 [ext_resource type="PackedScene" uid="uid://b0xw3rx0tqpat" path="res://SceneManager/TransitionManager.tscn" id="3_5ufeb"]
 
 [node name="SceneManager" type="Node"]
@@ -15,7 +16,9 @@ process_mode = 1
 [node name="Node" type="Node" parent="CurrentSceneStack"]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_u2x0j")
 autoplay = true
+parameters/looping = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 10

@@ -16,6 +16,7 @@ func do_action(sender:Player):
 	tween2.tween_property(cameraShader, "material:shader_parameter/sepia_tone",Color(0.935, 0.906, 0.728), 1)
 	tween2.tween_callback(end_action)
 	
+	$AudioStreamPlayer2D.play()
 	$Faro.texture = faroOn
 	$InteractionArea.queue_free()
 

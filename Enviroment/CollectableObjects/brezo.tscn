@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwb0rypgpm4g4"]
+[gd_scene load_steps=5 format=3 uid="uid://dwb0rypgpm4g4"]
 
 [ext_resource type="Script" uid="uid://b0lfccndlqnro" path="res://Enviroment/CollectableObjects/base_collectable_object.gd" id="1_l7xou"]
 [ext_resource type="Texture2D" uid="uid://ctc2ro5nwbk1r" path="res://Imagenes/Entorno/BrezoON.png" id="2_l7xou"]
+[ext_resource type="AudioStream" uid="uid://nnrhwyh5xtum" path="res://Ui/Sonido/brezo.wav" id="3_0uwf2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fow8g"]
 radius = 263.048
@@ -14,5 +15,8 @@ shape = SubResource("CircleShape2D_fow8g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_l7xou")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0uwf2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
