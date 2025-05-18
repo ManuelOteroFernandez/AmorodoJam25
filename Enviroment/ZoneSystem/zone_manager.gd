@@ -1,7 +1,7 @@
 extends Node2D
 class_name ZoneManager
 
-@export var zone_size: Vector2 = Vector2(3840.0,2176.0)
+@export var zone_size: Vector2 = Vector2(3840.0,2048.0)
 @export var camera_zoom: float = 0.3
 
 var initial_position: Vector2
