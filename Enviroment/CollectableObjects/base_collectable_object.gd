@@ -13,3 +13,4 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	
 	Collectable.add_collectable_object(type,value)
+	queue_free()
