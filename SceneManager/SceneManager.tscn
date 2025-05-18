@@ -23,7 +23,10 @@ parameters/looping = true
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 10
 
-[node name="MenuPause" parent="UI" instance=ExtResource("1_x7qrj")]
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+layer = 50
+
+[node name="MenuPause" parent="UI/CanvasLayer" instance=ExtResource("1_x7qrj")]
 visible = false
 
 [node name="TouchControls" parent="UI" instance=ExtResource("2_1bbdn")]

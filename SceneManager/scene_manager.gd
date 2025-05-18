@@ -31,8 +31,8 @@ var current_transition = Transition_to.None
 var current_level_index = 0
 
 const level_list = [
-	"res://Story/story.tscn",
 	"res://Enviroment/Levels/Level01.tscn",
+	"res://Story/story.tscn",
 	"res://Story/story.tscn"
 ]
 
