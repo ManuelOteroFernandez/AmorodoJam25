@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://cii7lqsuqxvn1"]
+
+[ext_resource type="Texture2D" uid="uid://ctc2ro5nwbk1r" path="res://Imagenes/Entorno/BrezoON.png" id="1_3puak"]
+[ext_resource type="Script" uid="uid://bshv2abcm3b1m" path="res://Ui/collectable_visor.gd" id="2_3puak"]
+
+[node name="CollectableVisor" type="TextureRect"]
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.062
+offset_left = 155.0
+offset_top = 370.0
+offset_right = 399.68
+offset_bottom = 614.824
+texture = ExtResource("1_3puak")
+expand_mode = 5
+stretch_mode = 4
+script = ExtResource("2_3puak")
+textureCol = ExtResource("1_3puak")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 130.0
+offset_right = 293.0
+offset_bottom = 170.0
+text = "2"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 130.0
+offset_right = 315.0
+offset_bottom = 170.0
+text = "/"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 130.0
+offset_right = 334.0
+offset_bottom = 170.0
+text = "3
+"

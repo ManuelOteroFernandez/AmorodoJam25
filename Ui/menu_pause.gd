@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 	
 func on_pause():
-	if sm.is_open_any_menu() or sm.transition != SceneManager.Transition_to.None:
+	if sm.is_open_any_menu() or sm.current_transition != SceneManager.Transition_to.None:
 		visible = false
 		return 
 		

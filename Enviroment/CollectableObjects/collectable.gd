@@ -41,6 +41,10 @@ func use_collectable_object(type: COLLECTABLE_TYPE, num:int = 1) -> bool:
 func get_collectable_value(type: COLLECTABLE_TYPE) -> int:
 	return _objects[type]
 
+
+func get_max_collectable_value(type: COLLECTABLE_TYPE) -> int:
+	return _max_object_value[type]
+
 func get_collectable_unused(type: COLLECTABLE_TYPE) -> int:
 	return _objects[type] - _object_used[type]
 	
