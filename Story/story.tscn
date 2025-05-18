@@ -38,10 +38,11 @@ expand_mode = 2
 [node name="TextureRect2" type="TextureRect" parent="."]
 anchors_preset = -1
 anchor_bottom = 0.031
-offset_left = 1013.0
-offset_top = 267.0
-offset_right = 1141.0
-offset_bottom = 374.912
+offset_left = 1040.0
+offset_top = 131.0
+offset_right = 1168.0
+offset_bottom = 238.912
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_8i1ch")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -64,8 +65,9 @@ vertical_alignment = 1
 [node name="TextureRect3" type="TextureRect" parent="."]
 anchors_preset = -1
 anchor_right = 0.017
-offset_left = 999.0
-offset_top = 125.0
-offset_right = 1107.42
-offset_bottom = 253.0
+offset_left = 1040.0
+offset_top = 59.0
+offset_right = 1148.42
+offset_bottom = 187.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_h7o7l")
