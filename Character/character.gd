@@ -242,6 +242,9 @@ func _change_state(new_state:STATES = STATES.UNDEFINED):
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	change_zone_signal.emit()
 	
+func is_on_screen():
+	return $VisibleOnScreenNotifier2D.is_on_screen()
+	
 func end_interaction():
 	_change_state()
 	
