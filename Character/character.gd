@@ -146,7 +146,7 @@ func _state_dashing_phisics_process(delta):
 	velocity = dash_vector * delta
 	move_and_slide()
 	
-	if velocity.x == 0 or dash_start_loc.distance_to(global_position) > dash_distance:
+	if get_slide_collision_count() > 0 or dash_start_loc.distance_to(global_position) > dash_distance:
 		_state_dashing_ends()
 	
 	
