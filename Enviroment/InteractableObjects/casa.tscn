@@ -36,6 +36,7 @@ offset_bottom = -317.0
 
 [node name="ResponseInteraction" type="Control" parent="." index="3"]
 modulate = Color(1, 1, 1, 0)
+z_index = 50
 layout_mode = 3
 anchors_preset = 0
 offset_left = -713.0
