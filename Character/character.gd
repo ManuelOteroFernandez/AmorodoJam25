@@ -25,10 +25,12 @@ signal take_damage_signal
 @export var dash_velocity = 100000
 @export var dash_distance = 600
 @export var dash_time_cooldown = 2
+@export var coyote_distance = 256
 
 
 # Current state of the character
 var current_state : STATES = STATES.IDLE
+var _last_state : STATES = STATES.UNDEFINED
 var can_double_jump : bool = true
 
 var horizontal_direction = 0
@@ -42,6 +44,9 @@ var dash_vector : Vector2
 
 var block_input
 var can_interact : bool = false
+
+var _coyote_position: Vector2
+
 
 func _ready() -> void:	
 	dash_timer_cooldown = $DashTimerCooldown
@@ -177,7 +182,7 @@ func _input(event:InputEvent):
 	if block_input: return
 	
 	if event.is_action_pressed("jump"):
-		if current_state == STATES.CLIMBING:
+		if current_state == STATES.CLIMBING or _last_state == STATES.CLIMBING:
 			_wall_jump()
 		else:
 			_jump()
@@ -190,45 +195,57 @@ func _input(event:InputEvent):
 		do_action_signal.emit(self)
 	
 func _jump():
-	if (is_on_floor() and current_state != STATES.JUMPING) or can_double_jump:
+	
+	if (is_on_floor() and current_state != STATES.JUMPING) or \
+	 can_double_jump or _is_in_coyote_time():
 		
-		if not is_on_floor():
+		if not is_on_floor() and not _is_in_coyote_time():
 			can_double_jump = false
 			
+		_coyote_position = Vector2.ZERO
 		vertical_velocity = jump_force
 		_change_state(STATES.JUMPING)
 		
+func _is_in_coyote_time() -> bool:
+	return abs(global_position.distance_to(_coyote_position)) < coyote_distance
+		
 func _wall_jump():
-	if current_state == STATES.CLIMBING:
+	if current_state == STATES.CLIMBING or _is_in_coyote_time():
 		_change_state(STATES.JUMPING)
 		vertical_velocity = jump_force
 		horizontal_velocity = speed * get_wall_normal().x 
-		#print("velocidad inicial=> {0}".format([horizontal_velocity]))
 		
 func _change_state(new_state:STATES = STATES.UNDEFINED):
+	if new_state == STATES.UNDEFINED:
+		if is_on_floor():
+			if abs(horizontal_direction) > 0.1:
+				new_state = STATES.RUNNING
+			else:
+				new_state = STATES.IDLE
+		elif vertical_velocity < 0:
+			new_state = STATES.JUMPING
+		else:
+			new_state = STATES.FALLING
 	
 	if current_state == STATES.INTERACTING:
 		block_input = false
 	if new_state == STATES.INTERACTING:
 		block_input = true
 		
+	if current_state in [STATES.RUNNING,STATES.CLIMBING] and new_state == STATES.FALLING:
+		_coyote_position = global_position
+	
+	if current_state == STATES.FALLING:
+		_coyote_position = Vector2.ZERO
+		
 	if current_state == STATES.FALLING and new_state != STATES.JUMPING:
 		vertical_velocity = 0
 	
 	if current_state == STATES.JUMPING and horizontal_velocity != 0:
 		horizontal_velocity = 0	
-		
-	if new_state != STATES.UNDEFINED:
-		current_state = new_state
-	elif is_on_floor():
-		if abs(horizontal_direction) > 0.1:
-			current_state = STATES.RUNNING
-		else:
-			current_state = STATES.IDLE
-	elif vertical_velocity < 0:
-		current_state = STATES.JUMPING
-	else:
-		current_state = STATES.FALLING
+	
+	_last_state = current_state
+	current_state = new_state
 		
 	if not can_double_jump and current_state in [STATES.IDLE, STATES.RUNNING]:
 		can_double_jump = true
