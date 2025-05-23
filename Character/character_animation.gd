@@ -24,9 +24,11 @@ func _on_character_change_state() -> void:
 			play("run")
 		Player.STATES.JUMPING:
 			play("jump")
+		Player.STATES.WALL_JUMPING:
+			play("jump")
 		Player.STATES.DASHING:
 			play("dash")
 		Player.STATES.CLIMBING:
-			play("wallJump")
+			play("climbing")
 		Player.STATES.FALLING:
 			play("fall")

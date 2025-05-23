@@ -21,6 +21,14 @@ height = 248.0
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("10_c5rlk")
+}],
+"loop": true,
+"name": &"climbing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_rgbux")
 }],
 "loop": true,
@@ -70,14 +78,6 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_c5rlk")
-}],
-"loop": true,
-"name": &"wallJump",
-"speed": 5.0
 }]
 
 [node name="Character" type="CharacterBody2D" groups=["player"]]
@@ -93,7 +93,7 @@ shape = SubResource("CapsuleShape2D_nwtvh")
 position = Vector2(1, 7)
 scale = Vector2(0.993333, 1)
 sprite_frames = SubResource("SpriteFrames_t4sv1")
-animation = &"dash"
+animation = &"climbing"
 flip_h = true
 script = ExtResource("11_rgbux")
 
