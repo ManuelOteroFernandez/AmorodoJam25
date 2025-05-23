@@ -83,6 +83,7 @@ animations = [{
 [node name="Character" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 collision_mask = 3
+floor_snap_length = 32.0
 script = ExtResource("1_nwtvh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -100,14 +101,15 @@ script = ExtResource("11_rgbux")
 wait_time = 2.0
 one_shot = true
 
-[node name="DashTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_f0n7x")
 volume_db = -8.0
+
+[node name="TimerJumpBuffer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
 
 [connection signal="change_state_signal" from="." to="AnimatedSprite2D" method="_on_character_change_state"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
