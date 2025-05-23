@@ -51,3 +51,19 @@ func get_collectable_unused(type: COLLECTABLE_TYPE) -> int:
 func register_collectable_value(type:COLLECTABLE_TYPE, num:int = 1):
 	_max_object_value[type] += num
 	
+func restart_data():
+	_objects = {
+		COLLECTABLE_TYPE.BREZO : 0,
+		COLLECTABLE_TYPE.CASA : 0
+	}
+
+	_object_used = {
+		COLLECTABLE_TYPE.BREZO : 0,
+		COLLECTABLE_TYPE.CASA : 0
+		
+	}
+
+	_max_object_value = {
+		COLLECTABLE_TYPE.BREZO : 0,
+		COLLECTABLE_TYPE.CASA : 0
+	}

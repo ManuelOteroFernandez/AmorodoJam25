@@ -65,6 +65,7 @@ func open_main_menu():
 	pause(true)
 	tsm.start_transition(transition)
 	story_index = 1
+	Collectable.restart_data()
 	
 func _on_mid_open_main_menu():	
 	$CurrentSceneStack.get_child(0).queue_free()
