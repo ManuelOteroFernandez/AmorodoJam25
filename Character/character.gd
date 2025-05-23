@@ -140,6 +140,7 @@ func _state_wall_jump_end():
 func _state_dashing_init():
 	dash_start_loc = global_position
 	dash_vector = Vector2(dash_velocity,0)
+	vertical_velocity = 0
 	
 	if horizontal_direction != 0:
 		dash_vector *= horizontal_direction 
