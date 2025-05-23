@@ -87,13 +87,6 @@ layout_mode = 2
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxEmpty_yr2tk")
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "TEXTO_CREDITOS_FONDO"
-fit_content = true
-
 [node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 20
