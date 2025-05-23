@@ -144,6 +144,8 @@ func _state_dashing_init():
 	
 	if horizontal_direction != 0:
 		dash_vector *= horizontal_direction 
+	elif $AnimatedSprite2D.flip_h:
+		dash_vector *= -1
 	
 	
 func _state_dashing_phisics_process(delta):
