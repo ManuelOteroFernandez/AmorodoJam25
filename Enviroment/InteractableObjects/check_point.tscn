@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://27vsn4wh001y"]
+[gd_scene load_steps=3 format=3 uid="uid://27vsn4wh001y"]
 
 [ext_resource type="Script" uid="uid://5wsnthvkuepg" path="res://Enviroment/InteractableObjects/check_point.gd" id="1_cryay"]
-[ext_resource type="Texture2D" uid="uid://cj5nd6lem311n" path="res://icon.svg" id="1_uc5hi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cryay"]
 size = Vector2(123, 105)
@@ -12,9 +11,5 @@ script = ExtResource("1_cryay")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.5, -3.5)
 shape = SubResource("RectangleShape2D_cryay")
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -3)
-texture = ExtResource("1_uc5hi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

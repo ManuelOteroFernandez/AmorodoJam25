@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bh01i0c11p0sv"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bh01i0c11p0sv"]
 
 [ext_resource type="Texture2D" uid="uid://dm6ofdlbqb4x6" path="res://Testing/Terrain.png" id="1_gaoqj"]
+[ext_resource type="Texture2D" uid="uid://6t1p52qxys7w" path="res://Imagenes/Entorno/Terrainfondo.png" id="2_ukbpk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7xs40"]
 texture = ExtResource("1_gaoqj")
@@ -365,6 +366,28 @@ texture_region_size = Vector2i(128, 128)
 16:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 16:4/0/terrains_peering_bit/left_side = 0
 16:4/0/terrains_peering_bit/top_side = 0
+20:1/0 = 0
+20:3/0 = 0
+18:1/0 = 0
+18:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s616c"]
+texture = ExtResource("2_ukbpk")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+10:2/0 = 0
+5:3/0 = 0
+8:3/0 = 0
 
 [resource]
 tile_size = Vector2i(128, 128)
@@ -373,3 +396,4 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain"
 terrain_set_0/terrain_0/color = Color(1, 0.565923, 0.404071, 1)
 sources/0 = SubResource("TileSetAtlasSource_7xs40")
+sources/1 = SubResource("TileSetAtlasSource_s616c")
