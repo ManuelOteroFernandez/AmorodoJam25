@@ -71,7 +71,7 @@ offset_top = -15.808
 offset_right = 62.432
 offset_bottom = 15.192
 theme_override_font_sizes/font_size = 25
-text = "Volver al menu"
+text = "Voltar ao menu"
 flat = true
 
 [connection signal="button_up" from="BtnBackMainMenu" to="." method="back"]
