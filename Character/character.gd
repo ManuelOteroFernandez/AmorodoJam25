@@ -141,6 +141,7 @@ func _state_dashing_init():
 	dash_start_loc = global_position
 	dash_vector = Vector2(dash_velocity,0)
 	vertical_velocity = 0
+	modulate = Color(0.711, 0.943, 0.946, 0.635)
 	
 	if horizontal_direction != 0:
 		dash_vector *= horizontal_direction 
@@ -162,6 +163,7 @@ func _state_dashing_ends():
 	if current_state == STATES.DASHING:
 		_change_state()
 		dash_timer_cooldown.start()
+		create_tween().tween_property(self,"modulate",Color.WHITE,dash_timer_cooldown.wait_time)
 	
 func _state_climbing_init():
 	velocity = Vector2.ZERO
