@@ -23,7 +23,8 @@ signal take_damage_signal
 @export var jump_force = -1500
 @export var gravity = 4200
 @export var wall_jum_min_distance = 512
-@export var wall_gravity = 800
+@export var wall_gravity = 5000
+@export var climb_min_distance_floor = 384
 @export var dash_velocity = 100000
 @export var dash_distance = 600
 @export var dash_time_cooldown = 2
@@ -112,7 +113,7 @@ func check_floor_distance() -> bool:
 
 	var ray_origin = global_position
 
-	var ray_end = global_position + Vector2(0, 400)
+	var ray_end = global_position + Vector2(0, climb_min_distance_floor)
 
 	var query = PhysicsRayQueryParameters2D.new()
 	query.from = ray_origin
