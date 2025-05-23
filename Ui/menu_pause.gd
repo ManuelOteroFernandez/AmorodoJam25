@@ -34,6 +34,7 @@ func on_pause():
 func _on_mid_transition():
 	tsm.mid_transition_signal.disconnect(self._on_mid_transition)
 	visible = true
+	$BtnContinue.grab_focus()
 	tsm.end_transition()
 	
 

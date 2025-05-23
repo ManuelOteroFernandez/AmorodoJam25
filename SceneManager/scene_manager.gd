@@ -14,16 +14,16 @@ enum MENU_TYPE { CREDITS, CONTROLS }
 enum Transition_to { None, MainMenu, Level, Credits, Controls, CloseMenu }
 
 var story_index = 1
-var story01: Array[SceneSequenceData] = [
-	load("res://Story/story_scene_01.tres"),
-	load("res://Story/story_scene_02.tres"), 
-	load("res://Story/story_scene_03.tres"),
-	load("res://Story/story_scene_04.tres"),
-	load("res://Story/story_scene_05.tres")
+var story01: Array[NodePath] = [
+	"res://Story/story_scene_01.tres",
+	"res://Story/story_scene_02.tres", 
+	"res://Story/story_scene_03.tres",
+	"res://Story/story_scene_04.tres",
+	"res://Story/story_scene_05.tres"
 ]
-var story02: Array[SceneSequenceData] = [
-	load("res://Story/story_scene_07.tres"),
-	load("res://Story/story_scene_08.tres")
+var story02: Array[NodePath] = [
+	"res://Story/story_scene_07.tres",
+	"res://Story/story_scene_08.tres"
 ]
 
 var next_scene = null
@@ -42,8 +42,8 @@ func _ready() -> void:
 	
 	tsm.end_transition(transition)
 	current_transition = Transition_to.MainMenu
-	$CurrentSceneStack.get_child(0).queue_free()
-	$CurrentSceneStack.add_child(menu_main.instantiate())
+	_on_mid_open_main_menu()
+	
 
 func open_level(level_index:int):
 	
@@ -64,10 +64,13 @@ func open_main_menu():
 	current_transition = Transition_to.MainMenu
 	pause(true)
 	tsm.start_transition(transition)
+	story_index = 1
 	
 func _on_mid_open_main_menu():	
 	$CurrentSceneStack.get_child(0).queue_free()
-	$CurrentSceneStack.add_child(menu_main.instantiate())
+	var instance = menu_main.instantiate()
+	$CurrentSceneStack.add_child(instance)
+	instance.set_default_focus()
 	
 func open_menu(menu:MENU_TYPE):
 	var currect_scene_path = $CurrentSceneStack.get_child(0).scene_file_path
@@ -90,6 +93,8 @@ func  _on_mid_open_menu():
 		
 	if node:
 		$CurrentSceneStack.add_child(node)
+		if node.has_method("set_default_focus"):
+			node.set_default_focus()
 	
 func close_menu():
 	current_transition = Transition_to.CloseMenu
@@ -107,10 +112,10 @@ func _on_mid_transition():
 		
 		if scene_node is StoryScene:
 			if story_index == 1:
-				scene_node.sceneData = story01
+				scene_node.sceneData = _load_story_data(story01)
 				story_index = 2
 			else:
-				scene_node.sceneData = story02
+				scene_node.sceneData = _load_story_data(story02)
 				story_index = 1
 			scene_node.start_sequence()
 		
@@ -119,7 +124,21 @@ func _on_mid_transition():
 	elif current_transition in [Transition_to.Credits, Transition_to.Controls]:
 		_on_mid_open_menu()
 	elif current_transition == Transition_to.CloseMenu and $CurrentSceneStack.get_child_count() > 1:
-		$CurrentSceneStack.get_children().back().queue_free()
+		var node:Control = $CurrentSceneStack.get_children().back()
+		node.reparent(self)
+		node.queue_free()
+		
+		var current_menu = $CurrentSceneStack.get_children().back()
+		if current_menu != null and current_menu.has_method("set_default_focus"):
+			current_menu.set_default_focus()
+
+func _load_story_data(data_path_list: Array[NodePath]):
+	var data: Array[SceneSequenceData]
+	
+	for scene_squence_data:NodePath in data_path_list:
+		data.append(load(scene_squence_data))
+		
+	return data
 
 func _on_end_transition():
 	if current_transition != Transition_to.None:

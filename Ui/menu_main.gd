@@ -23,3 +23,6 @@ func _on_btn_credits_pressed() -> void:
 		sm.open_menu(SceneManager.MENU_TYPE.CREDITS)
 	else:
 		printerr("MenuMain not find SceneManaer")
+		
+func set_default_focus():
+	$VBoxContainer/BtnStartGame.grab_focus()

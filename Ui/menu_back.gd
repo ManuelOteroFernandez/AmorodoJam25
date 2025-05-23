@@ -7,3 +7,6 @@ func back():
 		sm.close_menu()
 	else:
 		printerr("Menu not find SceneManager")
+		
+func set_default_focus():
+	$BtnBackMainMenu.grab_focus()
